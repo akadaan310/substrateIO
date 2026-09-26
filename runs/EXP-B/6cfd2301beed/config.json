@@ -1,0 +1,13 @@
+{
+ "deterministic_steps": 64,
+ "length": 200000,
+ "seed": 20260926,
+ "state_mk": [
+  0.2,
+  0.7
+ ],
+ "trans_mk": [
+  0.1,
+  0.8
+ ]
+}

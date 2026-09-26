@@ -1,0 +1,54 @@
+[
+ {
+  "description": "NOT trace alternates with period 2",
+  "id": "B1",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "state-Markov source: history beyond x_t carries no information (CMI < 10*bias)",
+  "id": "B2",
+  "passed": true,
+  "value": 9.948e-06
+ },
+ {
+  "description": "iid source: CMI < 10*bias",
+  "id": "B3",
+  "passed": true,
+  "value": 1.743e-05
+ },
+ {
+  "description": "transition-Markov source: history carries information beyond x_t (CMI > 10*bias)",
+  "id": "B4",
+  "passed": true,
+  "value": 0.365387682
+ },
+ {
+  "description": "transition-Markov source is first order in transition space (CMI_trans < 10*bias)",
+  "id": "B5",
+  "passed": true,
+  "value": 5.559e-06
+ },
+ {
+  "description": "entropy rate (depth-3 state ctx vs depth-2 transition ctx) agree within 0.01 bit for all sources",
+  "id": "B6",
+  "passed": true,
+  "value": {
+   "iid": -2.8e-05,
+   "state_mk": -0.00889,
+   "trans_mk": -6e-06
+  }
+ },
+ {
+  "description": "POST-HOC: state-Markov source needs deeper context in transition space: H(D|2 prev D) - H(X|1 prev X) > 10*bias",
+  "id": "B8",
+  "passed": true,
+  "value": 0.008839
+ },
+ {
+  "description": "integer first difference adds no information beyond (x_t, XOR transition)",
+  "id": "B7",
+  "passed": true,
+  "value": null
+ }
+]

@@ -1,0 +1,40 @@
+[
+ {
+  "description": "every injective map has no transients and no Garden-of-Eden states",
+  "id": "C1",
+  "passed": true,
+  "value": [
+   "increment",
+   "eca15",
+   "eca51",
+   "eca150",
+   "eca170",
+   "eca204",
+   "random_permutation#15"
+  ]
+ },
+ {
+  "description": "every non-injective map has at least one Garden-of-Eden state (pigeonhole)",
+  "id": "C2",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "calibration: mean cyclic nodes within 10% of sqrt(pi n/2)",
+  "id": "C3",
+  "passed": true,
+  "value": -0.06329599256369844
+ },
+ {
+  "description": "calibration: mean tail length within 10% of sqrt(pi n/8)",
+  "id": "C4",
+  "passed": true,
+  "value": -0.0014971634063569716
+ },
+ {
+  "description": "increment is a single cycle through all states",
+  "id": "C5",
+  "passed": true,
+  "value": null
+ }
+]

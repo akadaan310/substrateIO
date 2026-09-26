@@ -25,6 +25,7 @@ Claim subject domains: mathematical | computational | physical | repository | re
 
 from __future__ import annotations
 
+import re
 from typing import Dict, List, Sequence
 
 STATUSES = [
@@ -41,7 +42,8 @@ EVIDENCE_DOMAINS = ["mathematical", "computational", "simulated", "physical",
 
 SUBJECT_DOMAINS = ["mathematical", "computational", "physical", "repository", "research_process"]
 
-FORBIDDEN_WORDS = ["proven", "proved", "proof that"]  # in status/summary fields for empirical claims
+# Whole-word match: a substring match flagged "provenance" (failure F-009).
+FORBIDDEN_RE = re.compile(r"\b(proven|proved|proof that)\b")
 
 NOVELTY_SCOPES = ["repository", "team", "literature_unsearched", "literature_searched"]
 
@@ -79,7 +81,7 @@ def check_claim(claim: dict, evidence: Sequence[dict], runs: Dict[str, dict] = N
     text = (claim.get("statement", "") + " " + claim.get("summary", "")).lower()
     if "novel" in text and claim.get("novelty_scope") not in NOVELTY_SCOPES:
         v.append("{}: mentions novelty without a novelty_scope in {}".format(cid, NOVELTY_SCOPES))
-    if subj != "mathematical" and any(w in text for w in FORBIDDEN_WORDS):
+    if subj != "mathematical" and FORBIDDEN_RE.search(text):
         v.append("{}: empirical claim uses 'proven' language".format(cid))
 
     needs_support = {"ESTABLISHED", "DERIVED", "OBSERVED", "SIMULATED",

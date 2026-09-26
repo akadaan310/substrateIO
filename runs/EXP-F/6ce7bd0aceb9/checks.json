@@ -1,0 +1,53 @@
+[
+ {
+  "description": "identity loses 0 bits; constant loses n bits",
+  "id": "F1",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "transition recoding: every fiber has size 2 (x and its complement), loss exactly 1 bit",
+  "id": "F2",
+  "passed": true,
+  "value": {
+   "2": 512
+  }
+ },
+ {
+  "description": "transition recoding plus x0 is lossless and round-trips",
+  "id": "F3",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "low4 is compatible with increment; high4 is not",
+  "id": "F4",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "coarsest congruence (increment, bit0) has 2 blocks",
+  "id": "F5",
+  "passed": true,
+  "value": 2
+ },
+ {
+  "description": "minimum retained states depend on the observable (not constant across observables) for increment",
+  "id": "F6",
+  "passed": true,
+  "value": {
+   "bit0": 2,
+   "high4": 256,
+   "low4": 16,
+   "parity": 256,
+   "popcount": 256,
+   "threshold": 256
+  }
+ },
+ {
+  "description": "eca90: parity after one step is constant (H(P f X) = 0)",
+  "id": "F7",
+  "passed": true,
+  "value": null
+ }
+]

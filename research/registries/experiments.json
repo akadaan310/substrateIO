@@ -1,0 +1,262 @@
+[
+  {
+    "experiment_id": "EXP-A",
+    "title": "One-bit deterministic transition",
+    "question": "What distinguishes the deterministic dynamics available on a single bit, and what does a recorded transition event add to a bare transition?",
+    "hypotheses": [
+      "H-004"
+    ],
+    "objective": "Exhaustively characterise f: {0,1}->{0,1}; record events with logical time; measure per-step information loss.",
+    "model": "All 4 maps Sigma->Sigma; traces of length 4 from each initial state.",
+    "procedure": "Enumerate maps; functional-graph analysis; run traces; compute H(X)-H(f(X)) under uniform X.",
+    "expected_result": "identity: 2 fixed points; not: one 2-cycle; const0/const1: one fixed point with basin 2 and 1 bit lost per step. Bijective maps lose 0 bits.",
+    "falsification_condition": "Any map whose information loss is nonzero while injective, or zero while non-injective; or a count of maps != 4.",
+    "epistemic_status_of_result": "SIMULATED (model executions) corroborating DERIVED facts.",
+    "module": "experiments.exp_a_one_bit",
+    "config": {
+      "steps": 4,
+      "seed": null
+    },
+    "random_seed": null,
+    "runs": [
+      {
+        "run_id": "EXP-A-62e825df89fa",
+        "executions": 2,
+        "reproduced": true,
+        "artifacts": "runs/EXP-A/62e825df89fa/"
+      }
+    ]
+  },
+  {
+    "experiment_id": "EXP-B",
+    "title": "Repeated one-bit transitions producing a trace",
+    "question": "Does transition history contain predictive information about future states beyond the current state? What changes when transitions, not states, are the symbols?",
+    "hypotheses": [
+      "H-001",
+      "H-002"
+    ],
+    "objective": "Produce traces (deterministic and stochastic), then measure conditional entropies in state and transition representations.",
+    "model": "NOT map (deterministic); iid, first-order state-Markov, and transition-Markov one-bit sources.",
+    "procedure": "Generate traces with recorded seed; plug-in entropy estimates; compare context depths 1 and 2; compare representations.",
+    "expected_result": "CMI I(X_{t+1};X_{t-1}|X_t) ~ 0 for iid and state-Markov sources; > 0 for the transition-Markov source. Entropy rate equal in both representations.",
+    "falsification_condition": "CMI for the state-Markov source exceeds 10x the Miller-Madow bias bound, or CMI for the transition-Markov source is below it; or entropy-rate estimates differ between representations by more than 0.01 bit.",
+    "epistemic_status_of_result": "SIMULATED",
+    "post_hoc_checks": [
+      "B8"
+    ],
+    "notes": "B8 was added after the first execution; it is exploratory, not a pre-registered prediction.",
+    "module": "experiments.exp_b_one_bit_trace",
+    "config": {
+      "seed": 20260926,
+      "length": 200000,
+      "deterministic_steps": 64,
+      "state_mk": [
+        0.2,
+        0.7
+      ],
+      "trans_mk": [
+        0.1,
+        0.8
+      ]
+    },
+    "random_seed": 20260926,
+    "runs": [
+      {
+        "run_id": "EXP-B-6cfd2301beed",
+        "executions": 2,
+        "reproduced": true,
+        "artifacts": "runs/EXP-B/6cfd2301beed/"
+      }
+    ]
+  },
+  {
+    "experiment_id": "EXP-C",
+    "title": "Multi-bit transition graph",
+    "question": "What structure do transition graphs of multi-bit deterministic maps have, and does the instrument reproduce known random-mapping statistics?",
+    "hypotheses": [
+      "H-004",
+      "H-007"
+    ],
+    "objective": "Census of functional-graph structure across map families; calibrate graph analysis against established asymptotics.",
+    "model": "increment, ECA rules, random maps and permutations on n-bit state spaces.",
+    "procedure": "Tabulate maps, run functional_graph_analysis; for calibration average over seeds.",
+    "expected_result": "Bijective maps have no Garden-of-Eden states and no transients. Random-map means within 10% of sqrt(pi n/2) (cyclic) and sqrt(pi n/8) (tail).",
+    "falsification_condition": "Relative error > 10% on cyclic-node or tail-length means; any bijective map with a transient.",
+    "epistemic_status_of_result": "SIMULATED; calibration compared against LITERATURE_SUPPORTED values.",
+    "module": "experiments.exp_c_multibit_graph",
+    "config": {
+      "seed": 1729,
+      "n_bits": 8,
+      "eca_rules": [
+        0,
+        15,
+        30,
+        51,
+        90,
+        110,
+        150,
+        170,
+        184,
+        204,
+        232
+      ],
+      "injectivity_sizes": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "calib_bits": 12,
+      "calib_samples": 200
+    },
+    "random_seed": 1729,
+    "runs": [
+      {
+        "run_id": "EXP-C-a35b593d6665",
+        "executions": 2,
+        "reproduced": true,
+        "artifacts": "runs/EXP-C/a35b593d6665/"
+      }
+    ]
+  },
+  {
+    "experiment_id": "EXP-D",
+    "title": "Controlled perturbation",
+    "question": "How does a single injected state difference propagate, persist, transform, or vanish under different deterministic dynamics?",
+    "hypotheses": [
+      "H-004"
+    ],
+    "objective": "Measure damage spreading metrics and outcome classes for ECA rules; test that masking/recovery occurs only in non-injective dynamics.",
+    "model": "ECA rules on a 16-cell ring; single-bit flips at t0 at every position; horizon H.",
+    "procedure": "baseline trace; perturbed trace with recorded Intervention; compare_state_sequences; aggregate per rule. Null-intervention control.",
+    "expected_result": "No masked/recovered outcomes for injective rules (DERIVED). Rule 90 on n=16: every single-site difference annihilates exactly 8 steps later (DERIVED, Frobenius in GF(2)[x]/(x^16-1)). Null control 100% 'null'.",
+    "falsification_condition": "Any masked/recovered outcome under an injective rule; rule 90 differences not annihilating at k=8; any non-null class for the null control.",
+    "epistemic_status_of_result": "SIMULATED",
+    "module": "experiments.exp_d_perturbation",
+    "config": {
+      "seed": 424242,
+      "n": 16,
+      "rules": [
+        0,
+        30,
+        51,
+        90,
+        110,
+        150,
+        170,
+        184,
+        204,
+        232
+      ],
+      "n_initial": 12,
+      "t0": 4,
+      "horizon": 40
+    },
+    "random_seed": 424242,
+    "runs": [
+      {
+        "run_id": "EXP-D-7a85604894ba",
+        "executions": 2,
+        "reproduced": true,
+        "artifacts": "runs/EXP-D/7a85604894ba/"
+      }
+    ]
+  },
+  {
+    "experiment_id": "EXP-E",
+    "title": "Baseline versus perturbed comparison (structural)",
+    "question": "How much does a single-edge change in the dynamics alter the transition graph's attractor structure, and what predicts the size of the change?",
+    "hypotheses": [
+      "H-010"
+    ],
+    "objective": "Rewire each edge once (random target), compare G vs G'; verify the ancestor bound; measure its tightness.",
+    "model": "increment, eca30, eca90, random map, random permutation on 8 bits.",
+    "procedure": "for each s: Intervention(edge_rewire); analyse G'; compare; compute |Anc(s)|. Null control per system.",
+    "expected_result": "Bound never violated; null control zero change; single-cycle systems highly sensitive; random maps mostly insensitive.",
+    "falsification_condition": "Any rewire changing the attractor of a state outside Anc(s); any nonzero change under the null control.",
+    "epistemic_status_of_result": "SIMULATED",
+    "module": "experiments.exp_e_structural_comparison",
+    "config": {
+      "seed": 8675309,
+      "n_bits": 8
+    },
+    "random_seed": 8675309,
+    "runs": [
+      {
+        "run_id": "EXP-E-f8863151e249",
+        "executions": 2,
+        "reproduced": true,
+        "artifacts": "runs/EXP-E/f8863151e249/"
+      }
+    ]
+  },
+  {
+    "experiment_id": "EXP-F",
+    "title": "Representation projection with measurable information loss",
+    "question": "What information survives a representation map, what equivalence does it induce, and what is the minimum information that must survive to preserve a given property?",
+    "hypotheses": [
+      "H-002",
+      "H-006"
+    ],
+    "objective": "Quantify H(X|P(X)), fibers, dynamics-compatibility and coarsest congruences for several (f, P) pairs.",
+    "model": "X_8 with increment, eca90, eca30, eca204; projections low4, high4, parity, popcount, threshold, identity, constant; sequences of length 10.",
+    "procedure": "Exact enumeration (no sampling).",
+    "expected_result": "identity loses 0 bits, constant loses 8; low4 compatible with increment, high4 not; transition recoding of length-L sequences loses exactly 1 bit (fibers {x, complement}); minimum retained states depend on the observable.",
+    "falsification_condition": "Transition recoding fibers not all of size 2; identity/constant losses not 0/8; coarsest congruence for (increment, bit0) not 2 blocks; congruence summaries independent of the observable.",
+    "epistemic_status_of_result": "SIMULATED (exact enumeration), corroborating DERIVED statements.",
+    "module": "experiments.exp_f_projection",
+    "config": {
+      "n_bits": 8,
+      "seq_len": 10,
+      "seed": null
+    },
+    "random_seed": null,
+    "runs": [
+      {
+        "run_id": "EXP-F-6ce7bd0aceb9",
+        "executions": 2,
+        "reproduced": true,
+        "artifacts": "runs/EXP-F/6ce7bd0aceb9/"
+      }
+    ]
+  },
+  {
+    "experiment_id": "EXP-G",
+    "title": "Cross-layer propagation through a simulated abstraction boundary",
+    "question": "How does a one-bit difference at a storage layer propagate, attenuate, amplify or vanish across architectural, trace and output layers, and does detecting an inconsistency identify its cause?",
+    "hypotheses": [
+      "H-005",
+      "H-011",
+      "H-013"
+    ],
+    "objective": "Exhaustive fault-injection campaign in a four-layer model under four storage codes.",
+    "model": "substrate.layers (8 nibbles, 4 codes, 8-step program).",
+    "procedure": "For each dataset, code, injection: classify outcome per layer; aggregate.",
+    "expected_result": "Single flips present at read: hamming/secded 100% corrected; parity 100% DUE; none 100% propagated at L1. Double flips: secded 100% DUE; hamming decoder location wrong 100%. Distance non-monotone across layers in the unprotected case.",
+    "falsification_condition": "Any SDC from a single flip under hamming/secded; any undetected single flip under parity; decoder-identified location correct for any double flip under hamming.",
+    "epistemic_status_of_result": "SIMULATED (model only; no physical claim)",
+    "post_hoc_checks": [
+      "G8"
+    ],
+    "notes": "First execution: 0% logical masking in the unprotected case because the checksum output depends on every data bit. G8 (post-hoc) measures masking per output observable.",
+    "module": "experiments.exp_g_cross_layer",
+    "config": {
+      "seed": 314159,
+      "n_datasets": 20
+    },
+    "random_seed": 314159,
+    "runs": [
+      {
+        "run_id": "EXP-G-51648a077ba0",
+        "executions": 2,
+        "reproduced": true,
+        "artifacts": "runs/EXP-G/51648a077ba0/"
+      }
+    ]
+  }
+]

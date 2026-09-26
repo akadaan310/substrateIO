@@ -1,0 +1,383 @@
+{
+ "discoveries": [
+  {
+   "id": "DISC-001",
+   "stage": "measurement (post-hoc)",
+   "status": "SIMULATED"
+  },
+  {
+   "id": "DISC-002",
+   "stage": "rediscovery",
+   "status": "DERIVED"
+  },
+  {
+   "id": "DISC-003",
+   "stage": "candidate_pattern",
+   "status": "SIMULATED"
+  },
+  {
+   "id": "DISC-004",
+   "stage": "rediscovery",
+   "status": "SIMULATED"
+  },
+  {
+   "id": "DISC-005",
+   "stage": "candidate_pattern",
+   "status": "SIMULATED"
+  },
+  {
+   "id": "DISC-006",
+   "stage": "measurement",
+   "status": "OBSERVED"
+  }
+ ],
+ "evidence_by_status": {
+  "DERIVED": [
+   "DRV-001",
+   "DRV-002",
+   "DRV-003",
+   "DRV-004",
+   "DRV-005",
+   "DRV-006",
+   "DRV-007",
+   "DRV-008"
+  ],
+  "INFERRED": [
+   "INT-001",
+   "INT-002",
+   "INT-003",
+   "INT-004"
+  ],
+  "LITERATURE_SUPPORTED": [
+   "LIT-001",
+   "LIT-002",
+   "LIT-003",
+   "LIT-004",
+   "LIT-005",
+   "LIT-006",
+   "LIT-007",
+   "LIT-008",
+   "LIT-009",
+   "LIT-010",
+   "LIT-011",
+   "LIT-012",
+   "LIT-013",
+   "LIT-014",
+   "LIT-015",
+   "LIT-016"
+  ],
+  "OBSERVED": [
+   "REPO-001"
+  ],
+  "SIMULATED": [
+   "EV-EXP-A-loss_table",
+   "EV-EXP-A-graph_table",
+   "EV-EXP-A-identity_events",
+   "EV-EXP-B-cmi_table",
+   "EV-EXP-B-trans_order",
+   "EV-EXP-B-entropy_rates",
+   "EV-EXP-B-ctx_curves",
+   "EV-EXP-B-compression",
+   "EV-EXP-C-census",
+   "EV-EXP-C-eca_injectivity",
+   "EV-EXP-C-calibration",
+   "EV-EXP-D-class_table",
+   "EV-EXP-D-injective_vs_masking",
+   "EV-EXP-D-rule90_annihilation",
+   "EV-EXP-D-damage_metrics",
+   "EV-EXP-E-sensitivity_table",
+   "EV-EXP-F-static_loss",
+   "EV-EXP-F-distribution_dependence",
+   "EV-EXP-F-compatibility",
+   "EV-EXP-F-min_retained_states",
+   "EV-EXP-F-transition_recoding",
+   "EV-EXP-G-single_outcomes",
+   "EV-EXP-G-double_outcomes",
+   "EV-EXP-G-detection_vs_location",
+   "EV-EXP-G-logical_masking_fraction",
+   "EV-EXP-G-masking_by_observable",
+   "EV-EXP-G-nonmonotone"
+  ]
+ },
+ "experiments": {
+  "EXP-A": {
+   "post_hoc_checks": [],
+   "runs": [
+    {
+     "checks_passed_last": true,
+     "executions": 2,
+     "reproduced": true,
+     "run_id": "EXP-A-62e825df89fa"
+    }
+   ],
+   "title": "One-bit deterministic transition"
+  },
+  "EXP-B": {
+   "post_hoc_checks": [
+    "B8"
+   ],
+   "runs": [
+    {
+     "checks_passed_last": true,
+     "executions": 2,
+     "reproduced": true,
+     "run_id": "EXP-B-6cfd2301beed"
+    }
+   ],
+   "title": "Repeated one-bit transitions producing a trace"
+  },
+  "EXP-C": {
+   "post_hoc_checks": [],
+   "runs": [
+    {
+     "checks_passed_last": true,
+     "executions": 2,
+     "reproduced": true,
+     "run_id": "EXP-C-a35b593d6665"
+    }
+   ],
+   "title": "Multi-bit transition graph"
+  },
+  "EXP-D": {
+   "post_hoc_checks": [],
+   "runs": [
+    {
+     "checks_passed_last": true,
+     "executions": 2,
+     "reproduced": true,
+     "run_id": "EXP-D-7a85604894ba"
+    }
+   ],
+   "title": "Controlled perturbation"
+  },
+  "EXP-E": {
+   "post_hoc_checks": [],
+   "runs": [
+    {
+     "checks_passed_last": true,
+     "executions": 2,
+     "reproduced": true,
+     "run_id": "EXP-E-f8863151e249"
+    }
+   ],
+   "title": "Baseline versus perturbed comparison (structural)"
+  },
+  "EXP-F": {
+   "post_hoc_checks": [],
+   "runs": [
+    {
+     "checks_passed_last": true,
+     "executions": 2,
+     "reproduced": true,
+     "run_id": "EXP-F-6ce7bd0aceb9"
+    }
+   ],
+   "title": "Representation projection with measurable information loss"
+  },
+  "EXP-G": {
+   "post_hoc_checks": [
+    "G8"
+   ],
+   "runs": [
+    {
+     "checks_passed_last": true,
+     "executions": 2,
+     "reproduced": true,
+     "run_id": "EXP-G-51648a077ba0"
+    }
+   ],
+   "title": "Cross-layer propagation through a simulated abstraction boundary"
+  }
+ },
+ "failures": [
+  {
+   "id": "F-001",
+   "status": "UNRESOLVED",
+   "type": "weak_test"
+  },
+  {
+   "id": "F-002",
+   "status": "REJECTED",
+   "type": "rejected_metric"
+  },
+  {
+   "id": "F-003",
+   "status": "RESOLVED",
+   "type": "misleading_design"
+  },
+  {
+   "id": "F-004",
+   "status": "RESOLVED",
+   "type": "invalid_model"
+  },
+  {
+   "id": "F-005",
+   "status": "DISPROVEN",
+   "type": "failed_hypothesis"
+  },
+  {
+   "id": "F-006",
+   "status": "DISPROVEN",
+   "type": "failed_hypothesis"
+  },
+  {
+   "id": "F-007",
+   "status": "UNRESOLVED",
+   "type": "weak_test"
+  },
+  {
+   "id": "F-008",
+   "status": "RESOLVED",
+   "type": "implementation_defect"
+  },
+  {
+   "id": "F-009",
+   "status": "RESOLVED",
+   "type": "validator_defect"
+  }
+ ],
+ "human_readable": "research/state/CURRENT_STATE.md",
+ "hypotheses": {
+  "H-001": {
+   "statement": "Transition history contains predictive information about the next state beyond the current state.",
+   "status": "DISPROVEN"
+  },
+  "H-002": {
+   "statement": "Representing a computation by its transitions rather than its states exposes structure that the state representation hides.",
+   "status": "DISPROVEN"
+  },
+  "H-003": {
+   "statement": "Computation admits a natural seven-stage stratification: State, Transition, Temporal History, Transition Topology, Computational Structure, Representation, Meta-Substrate.",
+   "status": "UNRESOLVED"
+  },
+  "H-004": {
+   "statement": "In deterministic dynamics, exact masking or recovery of a state perturbation requires the dynamics to be non-injective (information-losing).",
+   "status": "DERIVED"
+  },
+  "H-005": {
+   "statement": "In the simulated layered model, a single-bit storage perturbation under a distance-3 code is attenuated to zero at the architectural layer; under parity it becomes a detection event; unprotected it always reaches the architectural layer.",
+   "status": "EXPERIMENTALLY_SUPPORTED"
+  },
+  "H-006": {
+   "statement": "The minimum information that must survive between two representations is not a single quantity: it depends on the property to be preserved.",
+   "status": "ESTABLISHED"
+  },
+  "H-007": {
+   "statement": "The Computational Transition Graph (CTG) is a mathematical object distinct from established transition systems / graphs.",
+   "status": "UNRESOLVED"
+  },
+  "H-008": {
+   "statement": "Structural lifting (structures becoming states of a higher-level system) yields new measurable information at each level, rather than collapsing into an established formalism or becoming redundant.",
+   "status": "UNRESOLVED"
+  },
+  "H-010": {
+   "statement": "The structural effect of rewiring one edge of a functional graph is bounded by the ancestor set of the rewired vertex and is dominated by rewires of cyclic vertices.",
+   "status": "SIMULATED"
+  },
+  "H-011": {
+   "statement": "Detecting an inconsistency does not identify its cause: an error-correcting decoder's inferred error location is correct only under its assumed fault model.",
+   "status": "DERIVED"
+  },
+  "H-012": {
+   "statement": "There exist binary processes whose finite Markov order is strictly lower in the XOR-transition representation than in the state representation.",
+   "status": "EXPERIMENTALLY_SUPPORTED"
+  },
+  "H-013": {
+   "statement": "Normalised perturbation distance need not be monotone across abstraction layers: amplification at one layer can coexist with attenuation at the next.",
+   "status": "EXPERIMENTALLY_SUPPORTED"
+  },
+  "H-014": {
+   "statement": "The fraction of storage perturbations that are logically masked is a property of the (program, output observable) pair, not of the storage perturbation alone.",
+   "status": "SIMULATED"
+  },
+  "H-015": {
+   "statement": "The research process itself can be represented with the laboratory's transition-graph machinery: the identifier-level provenance graph of the research loop contains cycles, while the versioned (revision-level) graph is acyclic, as a transition system and its unrolled trace are.",
+   "status": "OBSERVED"
+  }
+ },
+ "hypotheses_by_status": {
+  "DERIVED": [
+   "H-004",
+   "H-011"
+  ],
+  "DISPROVEN": [
+   "H-001",
+   "H-002"
+  ],
+  "ESTABLISHED": [
+   "H-006"
+  ],
+  "EXPERIMENTALLY_SUPPORTED": [
+   "H-005",
+   "H-013",
+   "H-012"
+  ],
+  "OBSERVED": [
+   "H-015"
+  ],
+  "SIMULATED": [
+   "H-010",
+   "H-014"
+  ],
+  "UNRESOLVED": [
+   "H-003",
+   "H-007",
+   "H-008"
+  ]
+ },
+ "implementation": {
+  "entry_points": [
+   "python3 -m experiments.run_all",
+   "python3 -m tools.validate",
+   "python3 -m tools.provenance",
+   "python3 -m tools.snapshot",
+   "python3 -m unittest discover -s tests -t ."
+  ],
+  "language": "Python 3.11 stdlib only",
+  "packages": [
+   "substrate",
+   "experiments",
+   "tools",
+   "tests"
+  ]
+ },
+ "known_limitations": [
+  "all results concern models; no physical observation",
+  "tiny models (<=16-bit state, 8-step program)",
+  "plug-in entropy estimators",
+  "several literature entries unverified (Q-011)",
+  "post-hoc checks are exploratory",
+  "cross-layer normalised distances are ad hoc (OP-006)",
+  "wall-clock timings measure the interpreter, not the models"
+ ],
+ "lineage": [
+  "R0",
+  "R1",
+  "R2"
+ ],
+ "nomenclature_count": 36,
+ "ontology_summary": "Object level: Representation, Dynamics, Maps (typed: encoding, decoding, abstraction/projection, observation, perturbation, structural perturbation, refinement, compilation), Observation (= map + recording mechanism + clock). Meta level: Epistemic (statuses, hypotheses, evidence, discoveries, failures), Nomenclature, Provenance & Continuity (experiments, runs, research states). Meta-Substrate: open question OP-002, not a substrate.",
+ "ontology_version": "O-1",
+ "open_problems": [
+  "OP-001",
+  "OP-002",
+  "OP-003",
+  "OP-004",
+  "OP-005",
+  "OP-006",
+  "OP-007",
+  "OP-008",
+  "OP-009"
+ ],
+ "queue_ready": [
+  "Q-001",
+  "Q-002",
+  "Q-003",
+  "Q-005",
+  "Q-007",
+  "Q-011"
+ ],
+ "research_question": "When computation is observed as state transitions across multiple representational spaces, what structure exists in the transformations between those spaces, and can that structure itself become an object of computation, measurement, verification, and discovery? (open)",
+ "research_state": "R2",
+ "research_state_summary": "All 43 checks passed; all 7 runs reproduced (identical deterministic hashes). H-001 and H-002 (information form) DISPROVEN; H-006 collapsed to ESTABLISHED theory; H-004, H-011 DERIVED; H-005, H-012, H-013 EXPERIMENTALLY_SUPPORTED (model scope); H-010, H-014 SIMULATED; H-003, H-007, H-008 UNRESOLVED; H-015 OBSERVED (repository). 8 failures and 6 discovery candidates recorded."
+}

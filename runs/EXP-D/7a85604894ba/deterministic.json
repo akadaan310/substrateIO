@@ -1,0 +1,760 @@
+{
+ "examples": {
+  "0": {
+   "class": "masked",
+   "distance_series": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "intervention": {
+    "kind": "state_bit_flip",
+    "note": "SIMULATED intervention on a computational model; not a physical event.",
+    "params": {
+     "bit": 0
+    },
+    "time": 4
+   }
+  },
+  "110": {
+   "class": "amplified",
+   "distance_series": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    3,
+    2,
+    4,
+    6,
+    4,
+    5,
+    7,
+    5,
+    6,
+    6,
+    6,
+    9,
+    5,
+    6,
+    7,
+    3,
+    4,
+    3,
+    7,
+    5,
+    8,
+    5,
+    8,
+    9,
+    9,
+    10,
+    11,
+    8,
+    8,
+    11,
+    10,
+    8,
+    6,
+    10,
+    7,
+    8,
+    7,
+    7,
+    6,
+    8
+   ],
+   "intervention": {
+    "kind": "state_bit_flip",
+    "note": "SIMULATED intervention on a computational model; not a physical event.",
+    "params": {
+     "bit": 0
+    },
+    "time": 4
+   }
+  },
+  "150": {
+   "class": "amplified",
+   "distance_series": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    3,
+    3,
+    5,
+    3,
+    9,
+    5,
+    11,
+    1,
+    3,
+    3,
+    5,
+    3,
+    9,
+    5,
+    11,
+    1,
+    3,
+    3,
+    5,
+    3,
+    9,
+    5,
+    11,
+    1,
+    3,
+    3,
+    5,
+    3,
+    9,
+    5,
+    11,
+    1,
+    3,
+    3,
+    5,
+    3,
+    9,
+    5,
+    11,
+    1
+   ],
+   "intervention": {
+    "kind": "state_bit_flip",
+    "note": "SIMULATED intervention on a computational model; not a physical event.",
+    "params": {
+     "bit": 0
+    },
+    "time": 4
+   }
+  },
+  "170": {
+   "class": "transformed",
+   "distance_series": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "intervention": {
+    "kind": "state_bit_flip",
+    "note": "SIMULATED intervention on a computational model; not a physical event.",
+    "params": {
+     "bit": 0
+    },
+    "time": 4
+   }
+  },
+  "184": {
+   "class": "transformed",
+   "distance_series": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "intervention": {
+    "kind": "state_bit_flip",
+    "note": "SIMULATED intervention on a computational model; not a physical event.",
+    "params": {
+     "bit": 0
+    },
+    "time": 4
+   }
+  },
+  "204": {
+   "class": "persistent_local",
+   "distance_series": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "intervention": {
+    "kind": "state_bit_flip",
+    "note": "SIMULATED intervention on a computational model; not a physical event.",
+    "params": {
+     "bit": 0
+    },
+    "time": 4
+   }
+  },
+  "232": {
+   "class": "persistent_local",
+   "distance_series": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "intervention": {
+    "kind": "state_bit_flip",
+    "note": "SIMULATED intervention on a computational model; not a physical event.",
+    "params": {
+     "bit": 0
+    },
+    "time": 4
+   }
+  },
+  "30": {
+   "class": "amplified",
+   "distance_series": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    4,
+    5,
+    5,
+    7,
+    5,
+    7,
+    9,
+    12,
+    8,
+    7,
+    9,
+    12,
+    3,
+    7,
+    6,
+    10,
+    8,
+    8,
+    8,
+    4,
+    7,
+    7,
+    10,
+    10,
+    7,
+    9,
+    10,
+    8,
+    8,
+    8,
+    12,
+    5,
+    7,
+    11,
+    8,
+    9,
+    9,
+    11,
+    11
+   ],
+   "intervention": {
+    "kind": "state_bit_flip",
+    "note": "SIMULATED intervention on a computational model; not a physical event.",
+    "params": {
+     "bit": 0
+    },
+    "time": 4
+   }
+  },
+  "51": {
+   "class": "persistent_local",
+   "distance_series": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "intervention": {
+    "kind": "state_bit_flip",
+    "note": "SIMULATED intervention on a computational model; not a physical event.",
+    "params": {
+     "bit": 0
+    },
+    "time": 4
+   }
+  },
+  "90": {
+   "class": "recovered",
+   "distance_series": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    2,
+    4,
+    2,
+    4,
+    4,
+    8,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "intervention": {
+    "kind": "state_bit_flip",
+    "note": "SIMULATED intervention on a computational model; not a physical event.",
+    "params": {
+     "bit": 0
+    },
+    "time": 4
+   }
+  }
+ },
+ "initial_states": [
+  29705,
+  41657,
+  35428,
+  6127,
+  44723,
+  26504,
+  18181,
+  49947,
+  45524,
+  52876,
+  59446,
+  26440
+ ],
+ "summary": {
+  "0": {
+   "classes": {
+    "masked": 192
+   },
+   "fractions": {
+    "masked": 1.0
+   },
+   "injective_on_ring": false,
+   "max_spread": 0,
+   "mean_first_escape": null,
+   "mean_max_distance": 0.0,
+   "position_invariant_class_distribution": true,
+   "recovery_time_hist": {
+    "1": 192
+   }
+  },
+  "110": {
+   "classes": {
+    "amplified": 188,
+    "recovered": 4
+   },
+   "fractions": {
+    "amplified": 0.979167,
+    "recovered": 0.020833
+   },
+   "injective_on_ring": false,
+   "max_spread": 8,
+   "mean_first_escape": 1.151042,
+   "mean_max_distance": 11.776042,
+   "position_invariant_class_distribution": false,
+   "recovery_time_hist": {
+    "31": 1,
+    "4": 2,
+    "8": 1
+   }
+  },
+  "150": {
+   "classes": {
+    "amplified": 192
+   },
+   "fractions": {
+    "amplified": 1.0
+   },
+   "injective_on_ring": true,
+   "max_spread": 7,
+   "mean_first_escape": 1.0,
+   "mean_max_distance": 11.0,
+   "position_invariant_class_distribution": true,
+   "recovery_time_hist": {}
+  },
+  "170": {
+   "classes": {
+    "transformed": 192
+   },
+   "fractions": {
+    "transformed": 1.0
+   },
+   "injective_on_ring": true,
+   "max_spread": 8,
+   "mean_first_escape": 1.0,
+   "mean_max_distance": 1.0,
+   "position_invariant_class_distribution": true,
+   "recovery_time_hist": {}
+  },
+  "184": {
+   "classes": {
+    "amplified": 36,
+    "transformed": 156
+   },
+   "fractions": {
+    "amplified": 0.1875,
+    "transformed": 0.8125
+   },
+   "injective_on_ring": false,
+   "max_spread": 8,
+   "mean_first_escape": 1.119792,
+   "mean_max_distance": 1.895833,
+   "position_invariant_class_distribution": false,
+   "recovery_time_hist": {}
+  },
+  "204": {
+   "classes": {
+    "persistent_local": 192
+   },
+   "fractions": {
+    "persistent_local": 1.0
+   },
+   "injective_on_ring": true,
+   "max_spread": 0,
+   "mean_first_escape": null,
+   "mean_max_distance": 1.0,
+   "position_invariant_class_distribution": true,
+   "recovery_time_hist": {}
+  },
+  "232": {
+   "classes": {
+    "amplified": 29,
+    "masked": 69,
+    "persistent_local": 52,
+    "transformed": 42
+   },
+   "fractions": {
+    "amplified": 0.151042,
+    "masked": 0.359375,
+    "persistent_local": 0.270833,
+    "transformed": 0.21875
+   },
+   "injective_on_ring": false,
+   "max_spread": 1,
+   "mean_first_escape": 1.0,
+   "mean_max_distance": 0.817708,
+   "position_invariant_class_distribution": false,
+   "recovery_time_hist": {
+    "1": 69
+   }
+  },
+  "30": {
+   "classes": {
+    "amplified": 192
+   },
+   "fractions": {
+    "amplified": 1.0
+   },
+   "injective_on_ring": false,
+   "max_spread": 8,
+   "mean_first_escape": 1.0,
+   "mean_max_distance": 11.859375,
+   "position_invariant_class_distribution": true,
+   "recovery_time_hist": {}
+  },
+  "51": {
+   "classes": {
+    "persistent_local": 192
+   },
+   "fractions": {
+    "persistent_local": 1.0
+   },
+   "injective_on_ring": true,
+   "max_spread": 0,
+   "mean_first_escape": null,
+   "mean_max_distance": 1.0,
+   "position_invariant_class_distribution": true,
+   "recovery_time_hist": {}
+  },
+  "90": {
+   "classes": {
+    "recovered": 192
+   },
+   "fractions": {
+    "recovered": 1.0
+   },
+   "injective_on_ring": false,
+   "max_spread": 7,
+   "mean_first_escape": 1.0,
+   "mean_max_distance": 8.0,
+   "position_invariant_class_distribution": true,
+   "recovery_time_hist": {
+    "8": 192
+   }
+  }
+ }
+}

@@ -86,6 +86,10 @@ class TestWrongMovesAreRejected(unittest.TestCase):
     def test_proven_language_in_empirical_claim(self):
         self.assertRejected(claim(status="SIMULATED", evidence=["EV-comp"], statement="we have proven the law"))
 
+    def test_provenance_is_not_proven(self):
+        # regression for F-009: substring match flagged the word "provenance"
+        self.assertAccepted(claim(status="HYPOTHESIS", statement="the provenance graph is acyclic"))
+
     def test_novelty_needs_scope(self):
         self.assertRejected(claim(status="HYPOTHESIS", statement="a novel computational object"))
         self.assertAccepted(claim(status="HYPOTHESIS", statement="a novel computational object", novelty_scope="repository"))

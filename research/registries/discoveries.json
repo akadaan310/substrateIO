@@ -1,1 +1,78 @@
-[]
+[
+  {
+    "id": "DISC-001",
+    "stage": "measurement (post-hoc)",
+    "statement": "For a first-order state-Markov bit source, the XOR-transition sequence needs a deeper context to approach the entropy rate: H(D_next | 2 previous D) exceeds H(X_next | X_t) by 0.0088 bit, and the gap is still 0.0082 bit at depth 6. Recoding moves memory in both directions (compare H-012).",
+    "status": "SIMULATED",
+    "subject_domain": "computational",
+    "evidence": [
+      "EV-EXP-B-ctx_curves"
+    ],
+    "novelty_scope": "literature_unsearched",
+    "likely_established_as": "A function of a Markov chain is generally not Markov (hidden Markov processes; lumpability, LIT-009). Probably a rediscovery.",
+    "next": "Q-001 (pre-registered replication)"
+  },
+  {
+    "id": "DISC-002",
+    "stage": "rediscovery",
+    "statement": "Rule 90 on a ring of n = 2^k cells annihilates every single-site difference at exactly t = n/2 (8 on the 16-ring, 192/192 trials).",
+    "status": "DERIVED",
+    "subject_domain": "mathematical",
+    "evidence": [
+      "DRV-002",
+      "EV-EXP-D-rule90_annihilation",
+      "LIT-004"
+    ],
+    "novelty_scope": "literature_searched",
+    "likely_established_as": "Algebraic theory of additive CA (LIT-004)."
+  },
+  {
+    "id": "DISC-003",
+    "stage": "candidate_pattern",
+    "statement": "Structural sensitivity of a functional graph to single-edge rewires is concentrated on cyclic vertices; off-cycle rewires changed the attractor of < 3.2% of states on average in every tested system.",
+    "status": "SIMULATED",
+    "subject_domain": "computational",
+    "evidence": [
+      "EV-EXP-E-sensitivity_table"
+    ],
+    "novelty_scope": "literature_unsearched",
+    "likely_established_as": "Follows from DRV-003 together with the small typical tree size of random mappings; search random-mapping literature."
+  },
+  {
+    "id": "DISC-004",
+    "stage": "rediscovery",
+    "statement": "Logical masking of storage upsets is relative to the output observable (0% / 80% / 94% for checksum / max / alarm in the same model).",
+    "status": "SIMULATED",
+    "subject_domain": "computational",
+    "evidence": [
+      "EV-EXP-G-masking_by_observable",
+      "LIT-011"
+    ],
+    "novelty_scope": "literature_searched",
+    "likely_established_as": "ACE analysis / AVF (LIT-011)."
+  },
+  {
+    "id": "DISC-005",
+    "stage": "candidate_pattern",
+    "statement": "In the simulated layered model, normalised perturbation distance is non-monotone across layers for about half of unprotected single flips (1413/2880): it grows at the trace layer and shrinks at the output layer.",
+    "status": "SIMULATED",
+    "subject_domain": "computational",
+    "evidence": [
+      "EV-EXP-G-nonmonotone"
+    ],
+    "novelty_scope": "literature_unsearched",
+    "likely_established_as": "Unknown; depends on the normalisation (OP-006)."
+  },
+  {
+    "id": "DISC-006",
+    "stage": "measurement",
+    "statement": "The research loop appears as cycles in the identifier-level provenance graph (4 SCCs at R2) and as an acyclic trace in the versioned graph, mirroring the transition-system / trace distinction of the object level.",
+    "status": "OBSERVED",
+    "subject_domain": "repository",
+    "evidence": [
+      "REPO-001"
+    ],
+    "novelty_scope": "literature_unsearched",
+    "likely_established_as": "Versioned provenance DAGs are standard in PROV (LIT-015); the correspondence is an observation about this repository only."
+  }
+]

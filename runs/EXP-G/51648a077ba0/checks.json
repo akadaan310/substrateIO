@@ -1,0 +1,57 @@
+[
+ {
+  "description": "hamming & secded: every single flip present at read is corrected (no SDC, no DUE)",
+  "id": "G1",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "parity: every single flip present at read is detected (DUE)",
+  "id": "G2",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "none: every single flip present at read propagates to L1",
+  "id": "G3",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "secded: every double flip is detected (DUE)",
+  "id": "G4",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "hamming: decoder-inferred error location is wrong for every double flip",
+  "id": "G5",
+  "passed": true,
+  "value": {
+   "False": 3360
+  }
+ },
+ {
+  "description": "hamming: decoder-inferred location is right for every single flip it corrects",
+  "id": "G6",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "none: some flips are amplified at L2 and attenuated at L3 (distance non-monotone across layers)",
+  "id": "G7",
+  "passed": true,
+  "value": 1413
+ },
+ {
+  "description": "POST-HOC: logical-masking fraction differs across output observables (masking is observable-relative)",
+  "id": "G8",
+  "passed": true,
+  "value": {
+   "alarm": 0.937153,
+   "all": 0.0,
+   "checksum": 0.0,
+   "max": 0.799653
+  }
+ }
+]

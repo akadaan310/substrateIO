@@ -1,0 +1,34 @@
+[
+ {
+  "description": "null intervention control: always class 'null' with zero distance",
+  "id": "D1",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "no masking/recovery under any injective rule",
+  "id": "D2",
+  "passed": true,
+  "value": []
+ },
+ {
+  "description": "rule 90 on n=16: all single-site differences recover exactly 8 steps after injection",
+  "id": "D3",
+  "passed": true,
+  "value": {
+   "8": 192
+  }
+ },
+ {
+  "description": "rule 0 masks every perturbation immediately",
+  "id": "D4",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "rule 204 (identity) leaves every perturbation persistent_local",
+  "id": "D5",
+  "passed": true,
+  "value": null
+ }
+]

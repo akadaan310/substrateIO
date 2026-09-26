@@ -1,0 +1,26 @@
+[
+ {
+  "description": "null rewire changes nothing (control)",
+  "id": "E1",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "ancestor bound never violated",
+  "id": "E2",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "increment (single cycle) is maximally sensitive: mean fraction changed > 0.5",
+  "id": "E3",
+  "passed": true,
+  "value": 1.0
+ },
+ {
+  "description": "random map is insensitive: mean fraction changed < 0.2",
+  "id": "E4",
+  "passed": true,
+  "value": 0.088852
+ }
+]

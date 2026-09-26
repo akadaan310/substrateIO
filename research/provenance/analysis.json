@@ -1,0 +1,96 @@
+{
+ "collapsed": {
+  "dangling_references": [],
+  "degree": {
+   "mean_out_degree": 1.1830985915492958,
+   "n_edges": 168,
+   "n_nodes": 142,
+   "sinks": 45,
+   "sources": 53
+  },
+  "is_dag": false,
+  "node_types": {
+   "concept": 36,
+   "discovery": 6,
+   "evidence:derivation": 8,
+   "evidence:derived_measurement": 27,
+   "evidence:external_source": 16,
+   "evidence:interpretation": 4,
+   "evidence:raw_observation": 1,
+   "experiment": 7,
+   "failure": 9,
+   "hypothesis": 14,
+   "ontology_change": 4,
+   "research_state": 3,
+   "run": 7
+  },
+  "nontrivial_sccs": [
+   [
+    "EV-EXP-B-cmi_table",
+    "EV-EXP-B-entropy_rates",
+    "EV-EXP-F-min_retained_states",
+    "EV-EXP-F-transition_recoding",
+    "EXP-B",
+    "EXP-B-6cfd2301beed",
+    "EXP-F",
+    "EXP-F-6ce7bd0aceb9",
+    "H-001",
+    "H-002",
+    "H-006"
+   ],
+   [
+    "EV-EXP-A-loss_table",
+    "EV-EXP-D-injective_vs_masking",
+    "EXP-A",
+    "EXP-A-62e825df89fa",
+    "EXP-D",
+    "EXP-D-7a85604894ba",
+    "H-004"
+   ],
+   [
+    "EV-EXP-G-detection_vs_location",
+    "EV-EXP-G-nonmonotone",
+    "EV-EXP-G-single_outcomes",
+    "EXP-G",
+    "EXP-G-51648a077ba0",
+    "H-005",
+    "H-011",
+    "H-013"
+   ],
+   [
+    "EV-EXP-E-sensitivity_table",
+    "EXP-E",
+    "EXP-E-f8863151e249",
+    "H-010"
+   ]
+  ]
+ },
+ "versioned": {
+  "dangling_references": [],
+  "degree": {
+   "mean_out_degree": 1.167741935483871,
+   "n_edges": 181,
+   "n_nodes": 155,
+   "sinks": 45,
+   "sources": 62
+  },
+  "is_dag": true,
+  "longest_lineage_path": 12,
+  "node_types": {
+   "concept": 36,
+   "discovery": 6,
+   "evidence:derivation": 8,
+   "evidence:derived_measurement": 27,
+   "evidence:external_source": 16,
+   "evidence:interpretation": 4,
+   "evidence:raw_observation": 1,
+   "experiment": 7,
+   "failure": 9,
+   "hypothesis": 27,
+   "ontology_change": 4,
+   "research_state": 3,
+   "run": 7
+  },
+  "nontrivial_sccs": []
+ }
+}

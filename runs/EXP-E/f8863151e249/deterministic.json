@@ -1,0 +1,49 @@
+{
+ "systems": {
+  "eca30": {
+   "max_fraction_attractor_changed": 0.875,
+   "mean_ancestor_set_fraction": 0.164566,
+   "mean_bound_tightness": 0.375,
+   "mean_fraction_attractor_changed": 0.145111,
+   "n_on_cycle": 51,
+   "off_cycle_mean_fraction": 0.006136,
+   "on_cycle_mean_fraction": 0.703738
+  },
+  "eca90": {
+   "max_fraction_attractor_changed": 1.0,
+   "mean_ancestor_set_fraction": 0.018234,
+   "mean_bound_tightness": 0.011719,
+   "mean_fraction_attractor_changed": 0.00528,
+   "n_on_cycle": 1,
+   "off_cycle_mean_fraction": 0.001379,
+   "on_cycle_mean_fraction": 1.0
+  },
+  "increment": {
+   "max_fraction_attractor_changed": 1.0,
+   "mean_ancestor_set_fraction": 1.0,
+   "mean_bound_tightness": 1.0,
+   "mean_fraction_attractor_changed": 1.0,
+   "n_on_cycle": 256,
+   "off_cycle_mean_fraction": null,
+   "on_cycle_mean_fraction": 1.0
+  },
+  "random_map": {
+   "max_fraction_attractor_changed": 0.933594,
+   "mean_ancestor_set_fraction": 0.116653,
+   "mean_bound_tightness": 0.25,
+   "mean_fraction_attractor_changed": 0.088852,
+   "n_on_cycle": 20,
+   "off_cycle_mean_fraction": 0.031962,
+   "on_cycle_mean_fraction": 0.760156
+  },
+  "random_permutation": {
+   "max_fraction_attractor_changed": 0.664062,
+   "mean_ancestor_set_fraction": 0.486908,
+   "mean_bound_tightness": 1.0,
+   "mean_fraction_attractor_changed": 0.486908,
+   "n_on_cycle": 256,
+   "off_cycle_mean_fraction": null,
+   "on_cycle_mean_fraction": 0.486908
+  }
+ }
+}

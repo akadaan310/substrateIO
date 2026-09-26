@@ -1,0 +1,446 @@
+{
+ "F1": {
+  "bit0": {
+   "H_PX": 1.0,
+   "H_X": 8.0,
+   "H_X_given_PX": 7.0,
+   "fiber_size_histogram": {
+    "128": 2
+   },
+   "fraction_lost": 0.875,
+   "max_fiber": 128,
+   "n_fibers": 2,
+   "reconstructible_on_support": false
+  },
+  "constant": {
+   "H_PX": -0.0,
+   "H_X": 8.0,
+   "H_X_given_PX": 8.0,
+   "fiber_size_histogram": {
+    "256": 1
+   },
+   "fraction_lost": 1.0,
+   "max_fiber": 256,
+   "n_fibers": 1,
+   "reconstructible_on_support": false
+  },
+  "high4": {
+   "H_PX": 4.0,
+   "H_X": 8.0,
+   "H_X_given_PX": 4.0,
+   "fiber_size_histogram": {
+    "16": 16
+   },
+   "fraction_lost": 0.5,
+   "max_fiber": 16,
+   "n_fibers": 16,
+   "reconstructible_on_support": false
+  },
+  "identity": {
+   "H_PX": 8.0,
+   "H_X": 8.0,
+   "H_X_given_PX": 0.0,
+   "fiber_size_histogram": {
+    "1": 256
+   },
+   "fraction_lost": 0.0,
+   "max_fiber": 1,
+   "n_fibers": 256,
+   "reconstructible_on_support": true
+  },
+  "low4": {
+   "H_PX": 4.0,
+   "H_X": 8.0,
+   "H_X_given_PX": 4.0,
+   "fiber_size_histogram": {
+    "16": 16
+   },
+   "fraction_lost": 0.5,
+   "max_fiber": 16,
+   "n_fibers": 16,
+   "reconstructible_on_support": false
+  },
+  "parity": {
+   "H_PX": 1.0,
+   "H_X": 8.0,
+   "H_X_given_PX": 7.0,
+   "fiber_size_histogram": {
+    "128": 2
+   },
+   "fraction_lost": 0.875,
+   "max_fiber": 128,
+   "n_fibers": 2,
+   "reconstructible_on_support": false
+  },
+  "popcount": {
+   "H_PX": 2.544197507,
+   "H_X": 8.0,
+   "H_X_given_PX": 5.455802493,
+   "fiber_size_histogram": {
+    "1": 2,
+    "28": 2,
+    "56": 2,
+    "70": 1,
+    "8": 2
+   },
+   "fraction_lost": 0.681975312,
+   "max_fiber": 70,
+   "n_fibers": 9,
+   "reconstructible_on_support": false
+  },
+  "threshold": {
+   "H_PX": 1.0,
+   "H_X": 8.0,
+   "H_X_given_PX": 7.0,
+   "fiber_size_histogram": {
+    "128": 2
+   },
+   "fraction_lost": 0.875,
+   "max_fiber": 128,
+   "n_fibers": 2,
+   "reconstructible_on_support": false
+  }
+ },
+ "F2": {
+  "eca204": {
+   "bit0": {
+    "H_PX_uniform": 1.0,
+    "H_PfX": 1.0
+   },
+   "high4": {
+    "H_PX_uniform": 4.0,
+    "H_PfX": 4.0
+   },
+   "parity": {
+    "H_PX_uniform": 1.0,
+    "H_PfX": 1.0
+   },
+   "popcount": {
+    "H_PX_uniform": 2.544197507,
+    "H_PfX": 2.544197507
+   }
+  },
+  "eca30": {
+   "bit0": {
+    "H_PX_uniform": 1.0,
+    "H_PfX": 1.0
+   },
+   "high4": {
+    "H_PX_uniform": 4.0,
+    "H_PfX": 4.0
+   },
+   "parity": {
+    "H_PX_uniform": 1.0,
+    "H_PfX": 0.988699408
+   },
+   "popcount": {
+    "H_PX_uniform": 2.544197507,
+    "H_PfX": 2.474082226
+   }
+  },
+  "eca90": {
+   "bit0": {
+    "H_PX_uniform": 1.0,
+    "H_PfX": 1.0
+   },
+   "high4": {
+    "H_PX_uniform": 4.0,
+    "H_PfX": 4.0
+   },
+   "parity": {
+    "H_PX_uniform": 1.0,
+    "H_PfX": 0.0
+   },
+   "popcount": {
+    "H_PX_uniform": 2.544197507,
+    "H_PfX": 1.539682101
+   }
+  },
+  "increment": {
+   "bit0": {
+    "H_PX_uniform": 1.0,
+    "H_PfX": 1.0
+   },
+   "high4": {
+    "H_PX_uniform": 4.0,
+    "H_PfX": 4.0
+   },
+   "parity": {
+    "H_PX_uniform": 1.0,
+    "H_PfX": 1.0
+   },
+   "popcount": {
+    "H_PX_uniform": 2.544197507,
+    "H_PfX": 2.544197507
+   }
+  }
+ },
+ "F3": {
+  "eca204": {
+   "bit0": true,
+   "constant": true,
+   "high4": true,
+   "identity": true,
+   "low4": true,
+   "parity": true,
+   "popcount": true,
+   "threshold": true
+  },
+  "eca30": {
+   "bit0": false,
+   "constant": true,
+   "high4": false,
+   "identity": true,
+   "low4": false,
+   "parity": false,
+   "popcount": false,
+   "threshold": false
+  },
+  "eca90": {
+   "bit0": false,
+   "constant": true,
+   "high4": false,
+   "identity": true,
+   "low4": false,
+   "parity": true,
+   "popcount": false,
+   "threshold": false
+  },
+  "increment": {
+   "bit0": true,
+   "constant": true,
+   "high4": false,
+   "identity": true,
+   "low4": true,
+   "parity": false,
+   "popcount": false,
+   "threshold": false
+  }
+ },
+ "F4": {
+  "eca204": {
+   "bit0": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 1.0,
+    "n_blocks": 2,
+    "n_observable_values": 2,
+    "n_states": 256
+   },
+   "high4": {
+    "bits_full_state": 8.0,
+    "bits_observable": 4.0,
+    "bits_required": 4.0,
+    "n_blocks": 16,
+    "n_observable_values": 16,
+    "n_states": 256
+   },
+   "low4": {
+    "bits_full_state": 8.0,
+    "bits_observable": 4.0,
+    "bits_required": 4.0,
+    "n_blocks": 16,
+    "n_observable_values": 16,
+    "n_states": 256
+   },
+   "parity": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 1.0,
+    "n_blocks": 2,
+    "n_observable_values": 2,
+    "n_states": 256
+   },
+   "popcount": {
+    "bits_full_state": 8.0,
+    "bits_observable": 3.169925001442312,
+    "bits_required": 3.169925001442312,
+    "n_blocks": 9,
+    "n_observable_values": 9,
+    "n_states": 256
+   },
+   "threshold": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 1.0,
+    "n_blocks": 2,
+    "n_observable_values": 2,
+    "n_states": 256
+   }
+  },
+  "eca30": {
+   "bit0": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 7.936637939002571,
+    "n_blocks": 245,
+    "n_observable_values": 2,
+    "n_states": 256
+   },
+   "high4": {
+    "bits_full_state": 8.0,
+    "bits_observable": 4.0,
+    "bits_required": 8.0,
+    "n_blocks": 256,
+    "n_observable_values": 16,
+    "n_states": 256
+   },
+   "low4": {
+    "bits_full_state": 8.0,
+    "bits_observable": 4.0,
+    "bits_required": 8.0,
+    "n_blocks": 256,
+    "n_observable_values": 16,
+    "n_states": 256
+   },
+   "parity": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 4.857980995127572,
+    "n_blocks": 29,
+    "n_observable_values": 2,
+    "n_states": 256
+   },
+   "popcount": {
+    "bits_full_state": 8.0,
+    "bits_observable": 3.169925001442312,
+    "bits_required": 5.169925001442312,
+    "n_blocks": 36,
+    "n_observable_values": 9,
+    "n_states": 256
+   },
+   "threshold": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 7.936637939002571,
+    "n_blocks": 245,
+    "n_observable_values": 2,
+    "n_states": 256
+   }
+  },
+  "eca90": {
+   "bit0": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 4.0,
+    "n_blocks": 16,
+    "n_observable_values": 2,
+    "n_states": 256
+   },
+   "high4": {
+    "bits_full_state": 8.0,
+    "bits_observable": 4.0,
+    "bits_required": 8.0,
+    "n_blocks": 256,
+    "n_observable_values": 16,
+    "n_states": 256
+   },
+   "low4": {
+    "bits_full_state": 8.0,
+    "bits_observable": 4.0,
+    "bits_required": 8.0,
+    "n_blocks": 256,
+    "n_observable_values": 16,
+    "n_states": 256
+   },
+   "parity": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 1.0,
+    "n_blocks": 2,
+    "n_observable_values": 2,
+    "n_states": 256
+   },
+   "popcount": {
+    "bits_full_state": 8.0,
+    "bits_observable": 3.169925001442312,
+    "bits_required": 4.392317422778761,
+    "n_blocks": 21,
+    "n_observable_values": 9,
+    "n_states": 256
+   },
+   "threshold": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 4.0,
+    "n_blocks": 16,
+    "n_observable_values": 2,
+    "n_states": 256
+   }
+  },
+  "increment": {
+   "bit0": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 1.0,
+    "n_blocks": 2,
+    "n_observable_values": 2,
+    "n_states": 256
+   },
+   "high4": {
+    "bits_full_state": 8.0,
+    "bits_observable": 4.0,
+    "bits_required": 8.0,
+    "n_blocks": 256,
+    "n_observable_values": 16,
+    "n_states": 256
+   },
+   "low4": {
+    "bits_full_state": 8.0,
+    "bits_observable": 4.0,
+    "bits_required": 4.0,
+    "n_blocks": 16,
+    "n_observable_values": 16,
+    "n_states": 256
+   },
+   "parity": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 8.0,
+    "n_blocks": 256,
+    "n_observable_values": 2,
+    "n_states": 256
+   },
+   "popcount": {
+    "bits_full_state": 8.0,
+    "bits_observable": 3.169925001442312,
+    "bits_required": 8.0,
+    "n_blocks": 256,
+    "n_observable_values": 9,
+    "n_states": 256
+   },
+   "threshold": {
+    "bits_full_state": 8.0,
+    "bits_observable": 1.0,
+    "bits_required": 8.0,
+    "n_blocks": 256,
+    "n_observable_values": 2,
+    "n_states": 256
+   }
+  }
+ },
+ "F5": {
+  "H_PX": 9.0,
+  "H_X": 10.0,
+  "H_X_given_PX": 1.0,
+  "fiber_size_histogram": {
+   "2": 512
+  },
+  "fraction_lost": 0.1,
+  "max_fiber": 2,
+  "n_fibers": 512,
+  "reconstructible_on_support": false
+ },
+ "F5_with_x0": {
+  "H_PX": 10.0,
+  "H_X": 10.0,
+  "H_X_given_PX": 0.0,
+  "fiber_size_histogram": {
+   "1": 1024
+  },
+  "fraction_lost": 0.0,
+  "max_fiber": 1,
+  "n_fibers": 1024,
+  "reconstructible_on_support": true
+ }
+}

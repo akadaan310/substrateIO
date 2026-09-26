@@ -1,1 +1,119 @@
-[]
+[
+  {
+    "id": "F-001",
+    "type": "weak_test",
+    "summary": "EXP-B check B6 compared entropy-rate estimates across representations with tolerance 0.01 bit. It passed, but the state-Markov source differed by 0.0089 bit because plug-in estimates in the transition representation converge slowly (hidden-Markov structure). The check could not have distinguished a real difference from estimator lag.",
+    "status": "UNRESOLVED",
+    "resolution": "Replace with exact entropy rates from generating models or convergence-aware estimators (OP-008, Q-001).",
+    "related_experiments": [
+      "EXP-B"
+    ],
+    "evidence": [
+      "EV-EXP-B-ctx_curves"
+    ],
+    "recorded_utc": "2026-09-26"
+  },
+  {
+    "id": "F-002",
+    "type": "rejected_metric",
+    "summary": "The 'spread' metric (max circular distance of differing bits from the injection site) conflates displacement with growth: rule 170 (pure shift, damage size constant 1) reaches max spread 8, the same as the chaotic rule 30. Rejected as a measure of propagation extent; the values remain in EXP-D artifacts, reinterpreted as 'reach'.",
+    "status": "REJECTED",
+    "resolution": "Q-002: damage-support width and light-cone speed.",
+    "related_experiments": [
+      "EXP-D"
+    ],
+    "evidence": [
+      "EV-EXP-D-damage_metrics"
+    ],
+    "recorded_utc": "2026-09-26"
+  },
+  {
+    "id": "F-003",
+    "type": "misleading_design",
+    "summary": "EXP-G's toy program outputs a checksum that depends on every data bit, so logical masking in unprotected storage was 0%. Reported naively, this would have suggested 'unprotected single flips are never logically masked'. It is a property of the chosen output observable. Caught at the first execution; the post-hoc G8 analysis per observable was added (H-014).",
+    "status": "RESOLVED",
+    "related_experiments": [
+      "EXP-G"
+    ],
+    "evidence": [
+      "EV-EXP-G-logical_masking_fraction",
+      "EV-EXP-G-masking_by_observable"
+    ],
+    "recorded_utc": "2026-09-26"
+  },
+  {
+    "id": "F-004",
+    "type": "invalid_model",
+    "summary": "Leading-order asymptotic E[#components] ~ (1/2) ln n predicts 4.16 at n=4096; measured mean 4.665 (+12%). The leading-order formula is not adequate at this n (a constant-order correction matters). It was deliberately not used as a pass/fail check; cyclic-node and tail checks passed (-6.3%, -0.15%).",
+    "status": "RESOLVED",
+    "related_experiments": [
+      "EXP-C"
+    ],
+    "evidence": [
+      "EV-EXP-C-calibration"
+    ],
+    "recorded_utc": "2026-09-26"
+  },
+  {
+    "id": "F-005",
+    "type": "failed_hypothesis",
+    "summary": "H-001 (history carries predictive information beyond the current state, universally) is disproven by the iid and state-Markov sources. It survives only as the definition of non-Markovianity in a representation.",
+    "status": "DISPROVEN",
+    "related_experiments": [
+      "EXP-B"
+    ],
+    "evidence": [
+      "EV-EXP-B-cmi_table"
+    ],
+    "recorded_utc": "2026-09-26"
+  },
+  {
+    "id": "F-006",
+    "type": "failed_hypothesis",
+    "summary": "H-002, information-content form (transitions carry information not present in states), is disproven. The recoding loses exactly 1 bit.",
+    "status": "DISPROVEN",
+    "related_experiments": [
+      "EXP-F",
+      "EXP-B"
+    ],
+    "evidence": [
+      "EV-EXP-F-transition_recoding"
+    ],
+    "recorded_utc": "2026-09-26"
+  },
+  {
+    "id": "F-007",
+    "type": "weak_test",
+    "summary": "H-010's dominance prediction ('on-cycle effect >> off-cycle effect') had no numeric falsification threshold, so it cannot be promoted beyond SIMULATED despite a large observed gap.",
+    "status": "UNRESOLVED",
+    "resolution": "Pre-register a threshold (e.g. ratio > 10 on fresh seeds) in a follow-up run.",
+    "related_experiments": [
+      "EXP-E"
+    ],
+    "evidence": [
+      "EV-EXP-E-sensitivity_table"
+    ],
+    "recorded_utc": "2026-09-26"
+  },
+  {
+    "id": "F-008",
+    "type": "implementation_defect",
+    "summary": "Found during bootstrap, before any recorded run: (a) experiment modules imported substrate.trace.run and then defined run(config), which shadowed it and would have caused self-recursion; (b) a str.format template contained literal braces. Both fixed; tests/test_reproducibility.py now executes every experiment twice.",
+    "status": "RESOLVED",
+    "related_experiments": [
+      "EXP-A",
+      "EXP-B"
+    ],
+    "evidence": [],
+    "recorded_utc": "2026-09-26"
+  },
+  {
+    "id": "F-009",
+    "type": "validator_defect",
+    "summary": "The epistemic guard matched the forbidden word 'proven' as a substring, so any claim mentioning 'provenance' was rejected (H-015, DISC-006 at R2). This is a false positive, which fails safe but blocks legitimate claims. Fixed with a whole-word regex and a regression test. Validation of the validation system found a defect the designed test cases had missed.",
+    "status": "RESOLVED",
+    "related_experiments": [],
+    "evidence": [],
+    "recorded_utc": "2026-09-26"
+  }
+]

@@ -1,0 +1,442 @@
+{
+ "maps": [
+  {
+   "graph": {
+    "basin_sizes": [
+     1,
+     1
+    ],
+    "cycle_lengths": [
+     1,
+     1
+    ],
+    "injective": true,
+    "max_indegree": 1,
+    "max_tail": 0,
+    "mean_tail": 0.0,
+    "n_components": 2,
+    "n_cyclic": 2,
+    "n_fixed_points": 2,
+    "n_garden_of_eden": 0,
+    "n_states": 2
+   },
+   "info_loss_bits": 0.0,
+   "map": "identity",
+   "table": [
+    0,
+    1
+   ],
+   "traces": {
+    "0": {
+     "changed": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "events": [
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 0,
+       "t": 0
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 0,
+       "t": 1
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 0,
+       "t": 2
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 0,
+       "t": 3
+      }
+     ],
+     "states": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "1": {
+     "changed": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "events": [
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 1,
+       "t": 0
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 1,
+       "t": 1
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 1,
+       "t": 2
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 1,
+       "t": 3
+      }
+     ],
+     "states": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ]
+    }
+   }
+  },
+  {
+   "graph": {
+    "basin_sizes": [
+     2
+    ],
+    "cycle_lengths": [
+     2
+    ],
+    "injective": true,
+    "max_indegree": 1,
+    "max_tail": 0,
+    "mean_tail": 0.0,
+    "n_components": 1,
+    "n_cyclic": 2,
+    "n_fixed_points": 0,
+    "n_garden_of_eden": 0,
+    "n_states": 2
+   },
+   "info_loss_bits": 0.0,
+   "map": "not",
+   "table": [
+    1,
+    0
+   ],
+   "traces": {
+    "0": {
+     "changed": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "events": [
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 0,
+       "t": 0
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 1,
+       "t": 1
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 0,
+       "t": 2
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 1,
+       "t": 3
+      }
+     ],
+     "states": [
+      0,
+      1,
+      0,
+      1,
+      0
+     ]
+    },
+    "1": {
+     "changed": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "events": [
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 1,
+       "t": 0
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 0,
+       "t": 1
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 1,
+       "t": 2
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 0,
+       "t": 3
+      }
+     ],
+     "states": [
+      1,
+      0,
+      1,
+      0,
+      1
+     ]
+    }
+   }
+  },
+  {
+   "graph": {
+    "basin_sizes": [
+     2
+    ],
+    "cycle_lengths": [
+     1
+    ],
+    "injective": false,
+    "max_indegree": 2,
+    "max_tail": 1,
+    "mean_tail": 0.5,
+    "n_components": 1,
+    "n_cyclic": 1,
+    "n_fixed_points": 1,
+    "n_garden_of_eden": 1,
+    "n_states": 2
+   },
+   "info_loss_bits": 1.0,
+   "map": "const0",
+   "table": [
+    0,
+    0
+   ],
+   "traces": {
+    "0": {
+     "changed": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "events": [
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 0,
+       "t": 0
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 0,
+       "t": 1
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 0,
+       "t": 2
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 0,
+       "t": 3
+      }
+     ],
+     "states": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "1": {
+     "changed": [
+      1,
+      0,
+      0,
+      0
+     ],
+     "events": [
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 1,
+       "t": 0
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 0,
+       "t": 1
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 0,
+       "t": 2
+      },
+      {
+       "dst": 0,
+       "label": "step",
+       "src": 0,
+       "t": 3
+      }
+     ],
+     "states": [
+      1,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   }
+  },
+  {
+   "graph": {
+    "basin_sizes": [
+     2
+    ],
+    "cycle_lengths": [
+     1
+    ],
+    "injective": false,
+    "max_indegree": 2,
+    "max_tail": 1,
+    "mean_tail": 0.5,
+    "n_components": 1,
+    "n_cyclic": 1,
+    "n_fixed_points": 1,
+    "n_garden_of_eden": 1,
+    "n_states": 2
+   },
+   "info_loss_bits": 1.0,
+   "map": "const1",
+   "table": [
+    1,
+    1
+   ],
+   "traces": {
+    "0": {
+     "changed": [
+      1,
+      0,
+      0,
+      0
+     ],
+     "events": [
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 0,
+       "t": 0
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 1,
+       "t": 1
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 1,
+       "t": 2
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 1,
+       "t": 3
+      }
+     ],
+     "states": [
+      0,
+      1,
+      1,
+      1,
+      1
+     ]
+    },
+    "1": {
+     "changed": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "events": [
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 1,
+       "t": 0
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 1,
+       "t": 1
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 1,
+       "t": 2
+      },
+      {
+       "dst": 1,
+       "label": "step",
+       "src": 1,
+       "t": 3
+      }
+     ],
+     "states": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ]
+    }
+   }
+  }
+ ]
+}

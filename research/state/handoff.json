@@ -1,0 +1,215 @@
+{
+ "WHAT_CHANGED": [
+  {
+   "operation": "inspection",
+   "parent": null,
+   "state": "R0"
+  },
+  {
+   "operation": "establish substrate",
+   "parent": "R0",
+   "state": "R1"
+  },
+  {
+   "operation": "execute experiments A-G twice; revise hypotheses; record failures and discoveries",
+   "parent": "R1",
+   "state": "R2"
+  }
+ ],
+ "WHAT_FAILED": {
+  "disproven": [
+   "H-001",
+   "H-002"
+  ],
+  "failures": [
+   "F-001",
+   "F-002",
+   "F-003",
+   "F-004",
+   "F-005",
+   "F-006",
+   "F-007",
+   "F-008",
+   "F-009"
+  ],
+  "rejected": []
+ },
+ "WHAT_SHOULD_HAPPEN_NEXT": [
+  {
+   "dependency": [],
+   "question": "Does the Markov-order shift under transition recoding (DISC-001) replicate under a pre-registered design with new seeds and a family of sources?",
+   "status": "ready",
+   "task_id": "Q-001"
+  },
+  {
+   "dependency": [],
+   "question": "Replace the 'spread' metric (F-002) with damage-support width and light-cone speed; rerun EXP-D.",
+   "status": "ready",
+   "task_id": "Q-002"
+  },
+  {
+   "dependency": [],
+   "question": "Next ladder rung: a tiny register machine (4 registers x 8 bits, ~8-instruction ISA) interpreter producing instruction traces with architectural state.",
+   "status": "ready",
+   "task_id": "Q-003"
+  },
+  {
+   "dependency": [
+    "Q-003"
+   ],
+   "question": "Exhaustive fault injection into register-machine state; measure per-layer masking and compute ACE-style vulnerability per observable.",
+   "status": "blocked",
+   "task_id": "Q-004"
+  },
+  {
+   "dependency": [],
+   "question": "Structural lifting: treat functional graphs on X_n as states and single-edge rewires as transitions; measure whether the lifted system has structure not predictable from level-0 statistics.",
+   "status": "ready",
+   "task_id": "Q-005"
+  },
+  {
+   "dependency": [
+    "Q-004"
+   ],
+   "question": "Operationalise the seven-stage question: for each boundary in the register-machine model, test congruence of the layer map and count where new measurable quantities appear.",
+   "status": "blocked",
+   "task_id": "Q-006"
+  },
+  {
+   "dependency": [],
+   "question": "Temporal structure beyond logical time: an asynchronous/event-driven model where inter-event intervals are part of the model, not the instrument.",
+   "status": "ready",
+   "task_id": "Q-007"
+  },
+  {
+   "dependency": [
+    "Q-004"
+   ],
+   "question": "Formalise anomaly as a model-relative residual and test detection-vs-attribution with multiple competing fault models.",
+   "status": "blocked",
+   "task_id": "Q-008"
+  },
+  {
+   "dependency": [
+    "Q-004"
+   ],
+   "question": "Write (do not execute) a hardware experiment specification for observing real upsets: beam/altitude test, ECC error-log collection, instrumentation.",
+   "status": "blocked",
+   "task_id": "Q-009"
+  },
+  {
+   "dependency": [],
+   "question": "Re-run the provenance self-analysis at each research state and track lineage growth, branching, and supersession.",
+   "status": "recurring",
+   "task_id": "Q-010"
+  },
+  {
+   "dependency": [],
+   "question": "Verify literature entries marked verified_in_session = 'no' against primary sources.",
+   "status": "ready",
+   "task_id": "Q-011"
+  }
+ ],
+ "WHAT_WE_DONT_KNOW": {
+  "open_problems": [
+   "OP-001",
+   "OP-002",
+   "OP-003",
+   "OP-004",
+   "OP-005",
+   "OP-006",
+   "OP-007",
+   "OP-008",
+   "OP-009"
+  ],
+  "unresolved_hypotheses": [
+   "H-003",
+   "H-007",
+   "H-008"
+  ]
+ },
+ "WHAT_WE_KNOW": {
+  "derived": [
+   "DRV-001",
+   "DRV-002",
+   "DRV-003",
+   "DRV-004",
+   "DRV-005",
+   "DRV-006",
+   "DRV-007",
+   "DRV-008"
+  ],
+  "established_hypotheses": [
+   "H-006",
+   "H-004",
+   "H-011"
+  ]
+ },
+ "WHAT_WE_OBSERVED": {
+  "evidence": [
+   "REPO-001"
+  ],
+  "note": "repository-domain only; nothing physical"
+ },
+ "WHAT_WE_SIMULATED": {
+  "evidence": [
+   "EV-EXP-A-graph_table",
+   "EV-EXP-A-identity_events",
+   "EV-EXP-A-loss_table",
+   "EV-EXP-B-cmi_table",
+   "EV-EXP-B-compression",
+   "EV-EXP-B-ctx_curves",
+   "EV-EXP-B-entropy_rates",
+   "EV-EXP-B-trans_order",
+   "EV-EXP-C-calibration",
+   "EV-EXP-C-census",
+   "EV-EXP-C-eca_injectivity",
+   "EV-EXP-D-class_table",
+   "EV-EXP-D-damage_metrics",
+   "EV-EXP-D-injective_vs_masking",
+   "EV-EXP-D-rule90_annihilation",
+   "EV-EXP-E-sensitivity_table",
+   "EV-EXP-F-compatibility",
+   "EV-EXP-F-distribution_dependence",
+   "EV-EXP-F-min_retained_states",
+   "EV-EXP-F-static_loss",
+   "EV-EXP-F-transition_recoding",
+   "EV-EXP-G-detection_vs_location",
+   "EV-EXP-G-double_outcomes",
+   "EV-EXP-G-logical_masking_fraction",
+   "EV-EXP-G-masking_by_observable",
+   "EV-EXP-G-nonmonotone",
+   "EV-EXP-G-single_outcomes"
+  ],
+  "experimentally_supported_model_scope": [
+   "H-005",
+   "H-013",
+   "H-012"
+  ],
+  "runs": [
+   "EXP-A-62e825df89fa",
+   "EXP-B-6cfd2301beed",
+   "EXP-C-a35b593d6665",
+   "EXP-D-7a85604894ba",
+   "EXP-E-f8863151e249",
+   "EXP-F-6ce7bd0aceb9",
+   "EXP-G-51648a077ba0"
+  ],
+  "simulated_only": [
+   "H-010",
+   "H-014"
+  ]
+ },
+ "WHAT_WE_THINK": {
+  "interpretations": [
+   "INT-001",
+   "INT-002",
+   "INT-003",
+   "INT-004"
+  ],
+  "provisional_ontology": "O-1"
+ },
+ "bootstrap": "PROTOCOL.md",
+ "from_research_state": "R2",
+ "human_readable": "research/state/HANDOFF.md"
+}

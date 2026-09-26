@@ -1,67 +1,552 @@
 [
-  {"id": "H-001", "statement": "Transition history contains predictive information about the next state beyond the current state.",
-   "motivation": "Charter §37: if computation is 'about transitions', history should matter.", "assumptions": ["plug-in entropy estimates at N=200000 are accurate to ~1e-4 bit"],
-   "predictions": ["If universal: I(X_{t+1}; X_{t-1} | X_t) > 0 for every source."],
-   "test": "EXP-B", "falsification": "CMI below 10x Miller-Madow bias for some source (a counterexample to the universal form).",
-   "falsification_checked": false, "status": "HYPOTHESIS", "subject_domain": "computational",
-   "evidence": [], "contradicting_evidence": [], "related_experiments": ["EXP-B"], "related_terms": ["C-006", "C-021"], "revision_history": []},
-  {"id": "H-002", "statement": "Representing a computation by its transitions rather than its states exposes structure that the state representation hides.",
-   "motivation": "Charter §12-13 (transition language / transition representation).", "assumptions": ["'structure' must be made measurable: information content, Markov order, compressibility"],
-   "predictions": ["information-content form: transitions carry information not in states", "model-order form: Markov order differs between representations"],
-   "test": "EXP-B, EXP-F (F5)", "falsification": "information-content form falsified if the recoding is information-preserving up to a constant; model-order form falsified if Markov orders coincide for all tested sources.",
-   "falsification_checked": false, "status": "HYPOTHESIS", "subject_domain": "computational",
-   "evidence": [], "contradicting_evidence": [], "related_experiments": ["EXP-B", "EXP-F"], "related_terms": ["C-015", "C-016"], "revision_history": []},
-  {"id": "H-003", "statement": "Computation admits a natural seven-stage stratification: State, Transition, Temporal History, Transition Topology, Computational Structure, Representation, Meta-Substrate.",
-   "motivation": "Original 'seven' intuition (charter §19, §53).", "assumptions": ["'natural' must be operationalised, e.g. as boundaries where projections stop being congruences, or where new measurable quantities appear"],
-   "predictions": ["an operational criterion applied to real systems yields seven levels, in this order"],
-   "test": "none yet (Q-006)", "falsification": "an operational layer criterion yields a different count/order, or the levels are shown to be orthogonal dimensions rather than a sequence.",
-   "falsification_checked": false, "status": "UNRESOLVED", "subject_domain": "research_process",
-   "evidence": [], "contradicting_evidence": [], "related_experiments": [], "related_terms": ["C-033"], "revision_history": []},
-  {"id": "H-004", "statement": "In deterministic dynamics, exact masking or recovery of a state perturbation requires the dynamics to be non-injective (information-losing).",
-   "motivation": "Links perturbation attenuation (§34) to information loss (§16).", "assumptions": ["deterministic, finite state"],
-   "predictions": ["no masked/recovered outcome under injective rules (EXP-D)"],
-   "test": "EXP-D", "falsification": "a masked/recovered outcome under an injective rule.",
-   "falsification_checked": false, "status": "HYPOTHESIS", "subject_domain": "mathematical",
-   "evidence": [], "contradicting_evidence": [], "related_experiments": ["EXP-A", "EXP-C", "EXP-D"], "related_terms": ["C-022", "C-023"], "revision_history": []},
-  {"id": "H-005", "statement": "In the simulated layered model, a single-bit storage perturbation under a distance-3 code is attenuated to zero at the architectural layer; under parity it becomes a detection event; unprotected it always reaches the architectural layer.",
-   "motivation": "Cross-layer attenuation by redundancy (§34, §28).", "assumptions": ["single-error fault model; flip present at read time"],
-   "predictions": ["G1, G2, G3 in EXP-G"], "test": "EXP-G", "falsification": "any SDC from a single present flip under hamming/secded; any undetected single flip under parity.",
-   "falsification_checked": false, "status": "HYPOTHESIS", "subject_domain": "computational",
-   "evidence": [], "contradicting_evidence": [], "related_experiments": ["EXP-G"], "related_terms": ["C-034", "C-027"], "revision_history": []},
-  {"id": "H-006", "statement": "The minimum information that must survive between two representations is not a single quantity: it depends on the property to be preserved.",
-   "motivation": "Charter §14 boxed question.", "assumptions": ["'property' = an observable O whose entire future must be predictable"],
-   "predictions": ["coarsest congruence sizes differ across observables for the same dynamics (EXP-F F6)"],
-   "test": "EXP-F", "falsification": "coarsest congruence size independent of the observable for every tested dynamics.",
-   "falsification_checked": false, "status": "HYPOTHESIS", "subject_domain": "computational",
-   "evidence": [], "contradicting_evidence": [], "related_experiments": ["EXP-F"], "related_terms": ["C-020", "C-021"], "revision_history": []},
-  {"id": "H-007", "statement": "The Computational Transition Graph (CTG) is a mathematical object distinct from established transition systems / graphs.",
-   "motivation": "Charter §10.", "assumptions": [],
-   "predictions": ["some CTG attribute is required by an experiment and not expressible as an annotated LTS"],
-   "test": "ongoing audit of experiments", "falsification": "not falsifiable by one experiment; evaluated by accumulated mapping.",
-   "falsification_checked": false, "status": "UNRESOLVED", "subject_domain": "mathematical",
-   "evidence": [], "contradicting_evidence": [], "related_experiments": ["EXP-C"], "related_terms": ["C-009"], "revision_history": []},
-  {"id": "H-008", "statement": "Structural lifting (structures becoming states of a higher-level system) yields new measurable information at each level, rather than collapsing into an established formalism or becoming redundant.",
-   "motivation": "Charter §35-36.", "assumptions": [],
-   "predictions": ["a lifted system (e.g. functional graphs under rewires) has attractors/transients not predictable from level-0 statistics"],
-   "test": "none yet (Q-005)", "falsification": "lifted-level measurements are functions of level-0 measurements.",
-   "falsification_checked": false, "status": "UNRESOLVED", "subject_domain": "mathematical",
-   "evidence": [], "contradicting_evidence": [], "related_experiments": [], "related_terms": ["C-032", "C-033"], "revision_history": []},
-  {"id": "H-010", "statement": "The structural effect of rewiring one edge of a functional graph is bounded by the ancestor set of the rewired vertex and is dominated by rewires of cyclic vertices.",
-   "motivation": "Structural perturbation (§25) needs a predictor of effect size.", "assumptions": [],
-   "predictions": ["E2 bound never violated", "on-cycle mean effect >> off-cycle mean effect"],
-   "test": "EXP-E", "falsification": "bound violated; or off-cycle effects comparable to on-cycle effects.",
-   "falsification_checked": false, "status": "HYPOTHESIS", "subject_domain": "computational",
-   "evidence": [], "contradicting_evidence": [], "related_experiments": ["EXP-E"], "related_terms": ["C-008", "C-022"], "revision_history": []},
-  {"id": "H-011", "statement": "Detecting an inconsistency does not identify its cause: an error-correcting decoder's inferred error location is correct only under its assumed fault model.",
-   "motivation": "Charter §28.", "assumptions": ["Hamming(7,4) decoder assumes single errors"],
-   "predictions": ["location correct for 100% of single flips, 0% of double flips (G5, G6)"],
-   "test": "EXP-G", "falsification": "decoder location correct for any double flip.",
-   "falsification_checked": false, "status": "HYPOTHESIS", "subject_domain": "computational",
-   "evidence": [], "contradicting_evidence": [], "related_experiments": ["EXP-G"], "related_terms": ["C-025", "C-034"], "revision_history": []},
-  {"id": "H-013", "statement": "Normalised perturbation distance need not be monotone across abstraction layers: amplification at one layer can coexist with attenuation at the next.",
-   "motivation": "Charter §33-34: 'larger' must be defined per layer.", "assumptions": ["distances normalised per layer as in substrate/layers.py"],
-   "predictions": ["G7: some unprotected injections grow L1->L2 and shrink L2->L3"],
-   "test": "EXP-G", "falsification": "no such injection exists in the exhaustive campaign.",
-   "falsification_checked": false, "status": "HYPOTHESIS", "subject_domain": "computational",
-   "evidence": [], "contradicting_evidence": [], "related_experiments": ["EXP-G"], "related_terms": ["C-022", "C-024"], "revision_history": []}
+  {
+    "id": "H-001",
+    "statement": "Transition history contains predictive information about the next state beyond the current state.",
+    "motivation": "Charter \u00a737: if computation is 'about transitions', history should matter.",
+    "assumptions": [
+      "plug-in entropy estimates at N=200000 are accurate to ~1e-4 bit"
+    ],
+    "predictions": [
+      "If universal: I(X_{t+1}; X_{t-1} | X_t) > 0 for every source."
+    ],
+    "test": "EXP-B",
+    "falsification": "CMI below 10x Miller-Madow bias for some source (a counterexample to the universal form).",
+    "falsification_checked": true,
+    "status": "DISPROVEN",
+    "subject_domain": "computational",
+    "evidence": [
+      "DRV-006",
+      "LIT-010"
+    ],
+    "contradicting_evidence": [
+      "EV-EXP-B-cmi_table"
+    ],
+    "related_experiments": [
+      "EXP-B"
+    ],
+    "related_terms": [
+      "C-006",
+      "C-021"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "HYPOTHESIS",
+        "to_status": "DISPROVEN",
+        "evidence": [
+          "LIT-010",
+          "DRV-006",
+          "EV-EXP-B-cmi_table"
+        ],
+        "note": "Universal form disproven: EXP-B measured CMI 1.7e-05 (iid) and 9.9e-06 (state-Markov) bits, below 10x bias bound 2.5e-04, i.e. no predictive information from history beyond x_t; CMI 0.365 bits for the transition-Markov source. By DRV-006 the property is exactly 'the process is not first-order Markov in this representation' \u2014 collapses to established theory (Markov order). Not a property of computation in general."
+      }
+    ]
+  },
+  {
+    "id": "H-002",
+    "statement": "Representing a computation by its transitions rather than its states exposes structure that the state representation hides.",
+    "motivation": "Charter \u00a712-13 (transition language / transition representation).",
+    "assumptions": [
+      "'structure' must be made measurable: information content, Markov order, compressibility"
+    ],
+    "predictions": [
+      "information-content form: transitions carry information not in states",
+      "model-order form: Markov order differs between representations"
+    ],
+    "test": "EXP-B, EXP-F (F5)",
+    "falsification": "information-content form falsified if the recoding is information-preserving up to a constant; model-order form falsified if Markov orders coincide for all tested sources.",
+    "falsification_checked": true,
+    "status": "DISPROVEN",
+    "subject_domain": "computational",
+    "evidence": [
+      "DRV-004",
+      "EV-EXP-B-entropy_rates"
+    ],
+    "contradicting_evidence": [
+      "EV-EXP-F-transition_recoding"
+    ],
+    "related_experiments": [
+      "EXP-B",
+      "EXP-F"
+    ],
+    "related_terms": [
+      "C-015",
+      "C-016"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "HYPOTHESIS",
+        "to_status": "DISPROVEN",
+        "evidence": [
+          "DRV-004",
+          "EV-EXP-B-entropy_rates",
+          "EV-EXP-F-transition_recoding"
+        ],
+        "note": "Information-content form disproven: the XOR transition recoding of a binary sequence has fibers {x, complement(x)} (EXP-F: 512 fibers of size 2 on {0,1}^10), loses exactly 1 bit, and is lossless given x_0. Transitions carry no information absent from states. The model-order form (what changes is the distribution of memory over time) continues as H-012; see INT-001."
+      }
+    ]
+  },
+  {
+    "id": "H-003",
+    "statement": "Computation admits a natural seven-stage stratification: State, Transition, Temporal History, Transition Topology, Computational Structure, Representation, Meta-Substrate.",
+    "motivation": "Original 'seven' intuition (charter \u00a719, \u00a753).",
+    "assumptions": [
+      "'natural' must be operationalised, e.g. as boundaries where projections stop being congruences, or where new measurable quantities appear"
+    ],
+    "predictions": [
+      "an operational criterion applied to real systems yields seven levels, in this order"
+    ],
+    "test": "none yet (Q-006)",
+    "falsification": "an operational layer criterion yields a different count/order, or the levels are shown to be orthogonal dimensions rather than a sequence.",
+    "falsification_checked": false,
+    "status": "UNRESOLVED",
+    "subject_domain": "research_process",
+    "evidence": [],
+    "contradicting_evidence": [],
+    "related_experiments": [],
+    "related_terms": [
+      "C-033"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "UNRESOLVED",
+        "to_status": "UNRESOLVED",
+        "evidence": [],
+        "note": "No test performed. Interpretation INT-004 (non-monotone distance across layers) and EXP-F (projection axis independent of time axis) argue against a single linear hierarchy, but interpretations cannot change status. Operational test queued as Q-006."
+      }
+    ]
+  },
+  {
+    "id": "H-004",
+    "statement": "In deterministic dynamics, exact masking or recovery of a state perturbation requires the dynamics to be non-injective (information-losing).",
+    "motivation": "Links perturbation attenuation (\u00a734) to information loss (\u00a716).",
+    "assumptions": [
+      "deterministic, finite state"
+    ],
+    "predictions": [
+      "no masked/recovered outcome under injective rules (EXP-D)"
+    ],
+    "test": "EXP-D",
+    "falsification": "a masked/recovered outcome under an injective rule.",
+    "falsification_checked": true,
+    "status": "DERIVED",
+    "subject_domain": "mathematical",
+    "evidence": [
+      "DRV-001",
+      "EV-EXP-A-loss_table",
+      "EV-EXP-D-injective_vs_masking"
+    ],
+    "contradicting_evidence": [],
+    "related_experiments": [
+      "EXP-A",
+      "EXP-C",
+      "EXP-D"
+    ],
+    "related_terms": [
+      "C-022",
+      "C-023"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "HYPOTHESIS",
+        "to_status": "DERIVED",
+        "evidence": [
+          "DRV-001",
+          "EV-EXP-D-injective_vs_masking",
+          "EV-EXP-A-loss_table"
+        ],
+        "note": "DRV-001 proves necessity. EXP-D corroborates: 0 masked/recovered outcomes in 192 trials for each injective rule (51, 150, 170, 204 on the 16-ring); masking present for rules 0, 90, 110, 232. Non-injectivity is NOT sufficient: rules 30 and 184 are non-injective with 0/192 masked. Rule 90 recovery at exactly k=8 matches DRV-002."
+      }
+    ]
+  },
+  {
+    "id": "H-005",
+    "statement": "In the simulated layered model, a single-bit storage perturbation under a distance-3 code is attenuated to zero at the architectural layer; under parity it becomes a detection event; unprotected it always reaches the architectural layer.",
+    "motivation": "Cross-layer attenuation by redundancy (\u00a734, \u00a728).",
+    "assumptions": [
+      "single-error fault model; flip present at read time"
+    ],
+    "predictions": [
+      "G1, G2, G3 in EXP-G"
+    ],
+    "test": "EXP-G",
+    "falsification": "any SDC from a single present flip under hamming/secded; any undetected single flip under parity.",
+    "falsification_checked": true,
+    "status": "EXPERIMENTALLY_SUPPORTED",
+    "subject_domain": "computational",
+    "evidence": [
+      "EV-EXP-G-single_outcomes",
+      "LIT-007"
+    ],
+    "contradicting_evidence": [],
+    "related_experiments": [
+      "EXP-G"
+    ],
+    "related_terms": [
+      "C-034",
+      "C-027"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "HYPOTHESIS",
+        "to_status": "EXPERIMENTALLY_SUPPORTED",
+        "evidence": [
+          "LIT-007",
+          "EV-EXP-G-single_outcomes"
+        ],
+        "note": "EXP-G (reproduced): hamming and secded corrected 100% of single flips present at read; parity detected 100% (DUE); unprotected propagated 100% to L1. Scope: the simulated model only. No statement about physical memories."
+      }
+    ]
+  },
+  {
+    "id": "H-006",
+    "statement": "The minimum information that must survive between two representations is not a single quantity: it depends on the property to be preserved.",
+    "motivation": "Charter \u00a714 boxed question.",
+    "assumptions": [
+      "'property' = an observable O whose entire future must be predictable"
+    ],
+    "predictions": [
+      "coarsest congruence sizes differ across observables for the same dynamics (EXP-F F6)"
+    ],
+    "test": "EXP-F",
+    "falsification": "coarsest congruence size independent of the observable for every tested dynamics.",
+    "falsification_checked": true,
+    "status": "ESTABLISHED",
+    "subject_domain": "computational",
+    "evidence": [
+      "DRV-007",
+      "EV-EXP-F-min_retained_states",
+      "LIT-008"
+    ],
+    "contradicting_evidence": [],
+    "related_experiments": [
+      "EXP-F"
+    ],
+    "related_terms": [
+      "C-020",
+      "C-021"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "HYPOTHESIS",
+        "to_status": "ESTABLISHED",
+        "evidence": [
+          "LIT-008",
+          "DRV-007",
+          "EV-EXP-F-min_retained_states"
+        ],
+        "note": "Collapses to established theory: the minimum retained information for an observable O is the coarsest congruence refining ker O (Moore minimisation / bisimulation quotient). EXP-F: for increment on 8 bits the minimum is 2 states (O=bit0), 16 (low4), 256 (msb/threshold/parity/popcount); for eca90, 2 (parity) to 256. The charter's boxed question has a precise answer relative to O and no answer without O."
+      }
+    ]
+  },
+  {
+    "id": "H-007",
+    "statement": "The Computational Transition Graph (CTG) is a mathematical object distinct from established transition systems / graphs.",
+    "motivation": "Charter \u00a710.",
+    "assumptions": [],
+    "predictions": [
+      "some CTG attribute is required by an experiment and not expressible as an annotated LTS"
+    ],
+    "test": "ongoing audit of experiments",
+    "falsification": "not falsifiable by one experiment; evaluated by accumulated mapping.",
+    "falsification_checked": false,
+    "status": "UNRESOLVED",
+    "subject_domain": "mathematical",
+    "evidence": [],
+    "contradicting_evidence": [],
+    "related_experiments": [
+      "EXP-C"
+    ],
+    "related_terms": [
+      "C-009"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "UNRESOLVED",
+        "to_status": "UNRESOLVED",
+        "evidence": [],
+        "note": "INT-002: every CTG attribute used so far is expressible as an annotated LTS/functional graph. Absence of a distinct object is not disproof; CTG is kept as an internal alias (C-009, PROVISIONAL)."
+      }
+    ]
+  },
+  {
+    "id": "H-008",
+    "statement": "Structural lifting (structures becoming states of a higher-level system) yields new measurable information at each level, rather than collapsing into an established formalism or becoming redundant.",
+    "motivation": "Charter \u00a735-36.",
+    "assumptions": [],
+    "predictions": [
+      "a lifted system (e.g. functional graphs under rewires) has attractors/transients not predictable from level-0 statistics"
+    ],
+    "test": "none yet (Q-005)",
+    "falsification": "lifted-level measurements are functions of level-0 measurements.",
+    "falsification_checked": false,
+    "status": "UNRESOLVED",
+    "subject_domain": "mathematical",
+    "evidence": [],
+    "contradicting_evidence": [],
+    "related_experiments": [],
+    "related_terms": [
+      "C-032",
+      "C-033"
+    ],
+    "revision_history": []
+  },
+  {
+    "id": "H-010",
+    "statement": "The structural effect of rewiring one edge of a functional graph is bounded by the ancestor set of the rewired vertex and is dominated by rewires of cyclic vertices.",
+    "motivation": "Structural perturbation (\u00a725) needs a predictor of effect size.",
+    "assumptions": [],
+    "predictions": [
+      "E2 bound never violated",
+      "on-cycle mean effect >> off-cycle mean effect"
+    ],
+    "test": "EXP-E",
+    "falsification": "bound violated; or off-cycle effects comparable to on-cycle effects.",
+    "falsification_checked": false,
+    "status": "SIMULATED",
+    "subject_domain": "computational",
+    "evidence": [
+      "DRV-003",
+      "EV-EXP-E-sensitivity_table"
+    ],
+    "contradicting_evidence": [],
+    "related_experiments": [
+      "EXP-E"
+    ],
+    "related_terms": [
+      "C-008",
+      "C-022"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "HYPOTHESIS",
+        "to_status": "SIMULATED",
+        "evidence": [
+          "DRV-003",
+          "EV-EXP-E-sensitivity_table"
+        ],
+        "note": "Bound part: DERIVED (DRV-003); never violated in 1280 rewires. Dominance part: on-cycle vs off-cycle mean fraction of states whose attractor changed = 0.70 vs 0.006 (eca30), 0.76 vs 0.032 (random map), 1.0 vs 0.0014 (eca90). The prediction had no numeric threshold (F-007), so it cannot be EXPERIMENTALLY_SUPPORTED; status SIMULATED."
+      }
+    ]
+  },
+  {
+    "id": "H-011",
+    "statement": "Detecting an inconsistency does not identify its cause: an error-correcting decoder's inferred error location is correct only under its assumed fault model.",
+    "motivation": "Charter \u00a728.",
+    "assumptions": [
+      "Hamming(7,4) decoder assumes single errors"
+    ],
+    "predictions": [
+      "location correct for 100% of single flips, 0% of double flips (G5, G6)"
+    ],
+    "test": "EXP-G",
+    "falsification": "decoder location correct for any double flip.",
+    "falsification_checked": true,
+    "status": "DERIVED",
+    "subject_domain": "computational",
+    "evidence": [
+      "DRV-005",
+      "EV-EXP-G-detection_vs_location"
+    ],
+    "contradicting_evidence": [],
+    "related_experiments": [
+      "EXP-G"
+    ],
+    "related_terms": [
+      "C-025",
+      "C-034"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "HYPOTHESIS",
+        "to_status": "DERIVED",
+        "evidence": [
+          "DRV-005",
+          "EV-EXP-G-detection_vs_location"
+        ],
+        "note": "DRV-005 plus EXP-G: Hamming(7,4) inferred location correct for 5040/5040 corrected single flips and 0/3360 double flips (all miscorrected -> SDC). SECDED detects all 4480 double flips but reports no location. Detection reports an inconsistency relative to a fault model; it does not identify a cause."
+      }
+    ]
+  },
+  {
+    "id": "H-013",
+    "statement": "Normalised perturbation distance need not be monotone across abstraction layers: amplification at one layer can coexist with attenuation at the next.",
+    "motivation": "Charter \u00a733-34: 'larger' must be defined per layer.",
+    "assumptions": [
+      "distances normalised per layer as in substrate/layers.py"
+    ],
+    "predictions": [
+      "G7: some unprotected injections grow L1->L2 and shrink L2->L3"
+    ],
+    "test": "EXP-G",
+    "falsification": "no such injection exists in the exhaustive campaign.",
+    "falsification_checked": true,
+    "status": "EXPERIMENTALLY_SUPPORTED",
+    "subject_domain": "computational",
+    "evidence": [
+      "EV-EXP-G-nonmonotone"
+    ],
+    "contradicting_evidence": [],
+    "related_experiments": [
+      "EXP-G"
+    ],
+    "related_terms": [
+      "C-022",
+      "C-024"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "HYPOTHESIS",
+        "to_status": "EXPERIMENTALLY_SUPPORTED",
+        "evidence": [
+          "EV-EXP-G-nonmonotone"
+        ],
+        "note": "Pre-registered G7 passed and reproduced: 1413 of 2880 unprotected single flips present at read have normalised distance increasing L1->L2 and decreasing L2->L3. Scope: this simulated model and these normalisations (OP-006 questions the normalisation itself)."
+      }
+    ]
+  },
+  {
+    "id": "H-012",
+    "statement": "There exist binary processes whose finite Markov order is strictly lower in the XOR-transition representation than in the state representation.",
+    "motivation": "Model-order form of H-002.",
+    "assumptions": [
+      "plug-in estimates at N=200000"
+    ],
+    "predictions": [
+      "B4: CMI in state space > 10x bias; B5: CMI in transition space < 10x bias, for the transition-Markov source"
+    ],
+    "test": "EXP-B",
+    "falsification": "B4 or B5 fails.",
+    "falsification_checked": true,
+    "status": "EXPERIMENTALLY_SUPPORTED",
+    "subject_domain": "computational",
+    "evidence": [
+      "EV-EXP-B-trans_order"
+    ],
+    "contradicting_evidence": [],
+    "related_experiments": [
+      "EXP-B"
+    ],
+    "related_terms": [
+      "C-015"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "(new, split from H-002)",
+        "to_status": "EXPERIMENTALLY_SUPPORTED",
+        "evidence": [
+          "EV-EXP-B-trans_order"
+        ],
+        "note": "State-space CMI 0.365 bits vs transition-space CMI 5.6e-06 bits (bias bound 2.5e-04). Pre-registered B4/B5 passed; reproduced. The converse direction (order increases under recoding) is post-hoc: DISC-001."
+      }
+    ]
+  },
+  {
+    "id": "H-014",
+    "statement": "The fraction of storage perturbations that are logically masked is a property of the (program, output observable) pair, not of the storage perturbation alone.",
+    "motivation": "EXP-G first execution showed 0% logical masking with a checksum output (F-003).",
+    "assumptions": [],
+    "predictions": [
+      "masking fraction differs across output observables"
+    ],
+    "test": "EXP-G G8 (post-hoc)",
+    "falsification": "equal masking fractions across observables.",
+    "falsification_checked": true,
+    "status": "SIMULATED",
+    "subject_domain": "computational",
+    "evidence": [
+      "EV-EXP-G-masking_by_observable",
+      "LIT-011"
+    ],
+    "contradicting_evidence": [],
+    "related_experiments": [
+      "EXP-G"
+    ],
+    "related_terms": [
+      "C-028"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "(new, post-hoc)",
+        "to_status": "SIMULATED",
+        "evidence": [
+          "EV-EXP-G-masking_by_observable"
+        ],
+        "note": "Unprotected single flips present at read: masked 0% (full output or checksum), 80.0% (max), 93.7% (alarm). Post-hoc, so capped at SIMULATED; rediscovers ACE/AVF reasoning (LIT-011)."
+      }
+    ]
+  },
+  {
+    "id": "H-015",
+    "statement": "The research process itself can be represented with the laboratory's transition-graph machinery: the identifier-level provenance graph of the research loop contains cycles, while the versioned (revision-level) graph is acyclic, as a transition system and its unrolled trace are.",
+    "motivation": "Charter \u00a762, \u00a774 (self-application).",
+    "assumptions": [
+      "edges extracted by tools/provenance.py"
+    ],
+    "predictions": [
+      "versioned graph is a DAG; collapsed graph has >=1 nontrivial SCC once a hypothesis is revised from evidence of an experiment testing it"
+    ],
+    "test": "tools/provenance.py at R1 and R2",
+    "falsification": "versioned graph cyclic, or collapsed graph acyclic after revisions.",
+    "falsification_checked": true,
+    "status": "OBSERVED",
+    "subject_domain": "repository",
+    "evidence": [
+      "REPO-001"
+    ],
+    "contradicting_evidence": [],
+    "related_experiments": [],
+    "related_terms": [
+      "C-006",
+      "C-007"
+    ],
+    "revision_history": [
+      {
+        "rev": 1,
+        "date": "2026-09-26",
+        "research_state": "R2",
+        "from_status": "HYPOTHESIS",
+        "to_status": "OBSERVED",
+        "evidence": [
+          "REPO-001"
+        ],
+        "note": "Prediction written into the registry before regenerating the graph; confirmed (4 SCCs collapsed, DAG versioned). Largely by construction; its practical value is that tools/validate.py uses the versioned DAG property as an integrity check."
+      }
+    ]
+  }
 ]

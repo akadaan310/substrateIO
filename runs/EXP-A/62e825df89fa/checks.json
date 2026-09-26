@@ -1,0 +1,38 @@
+[
+ {
+  "description": "exactly 4 distinct one-bit maps",
+  "id": "A1",
+  "passed": true,
+  "value": 4
+ },
+ {
+  "description": "information loss > 0 iff map non-injective",
+  "id": "A2",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "identity has 2 fixed points",
+  "id": "A3",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "not has a single 2-cycle and no fixed point",
+  "id": "A4",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "const maps: one attractor with basin 2",
+  "id": "A5",
+  "passed": true,
+  "value": null
+ },
+ {
+  "description": "identity trace: every event is a transition with no state change",
+  "id": "A6",
+  "passed": true,
+  "value": null
+ }
+]
