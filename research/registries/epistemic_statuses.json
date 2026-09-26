@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "principle": "A status describes the kind and strength of support a claim currently has in this repository. It never means 'true'. Machine-checkable parts are enforced by substrate/epistemic.py; tests/test_epistemic_guards.py verifies the enforcement.",
+  "statuses": [
+    {"status": "AXIOM", "meaning": "Adopted by definition or convention for this research (e.g. Sigma={0,1}). Not evidence-bearing; can be changed only by an ontology change record.", "requires": "an ontology or charter reference"},
+    {"status": "ESTABLISHED", "meaning": "Accepted in the relevant external discipline and traceable to a cited source or to a standard derivation.", "requires": "external_source or derivation evidence"},
+    {"status": "DERIVED", "meaning": "Follows from definitions by an argument written down in this repository (evidence_sources.json, kind=derivation). Computation may corroborate but does not replace the argument.", "requires": "derivation evidence"},
+    {"status": "OBSERVED", "meaning": "Measured from something that exists independently of the instrument: physical hardware or this repository's recorded history. Executing a model never yields OBSERVED.", "requires": "evidence with domain physical or repository"},
+    {"status": "SIMULATED", "meaning": "Produced by executing a computational model. True of the model under its configuration; says nothing about any system the model stands in for.", "requires": "evidence with domain computational or simulated and a run_id"},
+    {"status": "EXPERIMENTALLY_SUPPORTED", "meaning": "A pre-registered falsification condition was evaluated and not triggered, in a run that has been reproduced (>=2 executions with identical deterministic hash). Scope is the subject domain of the evidence: model-only evidence supports claims about the model only.", "requires": "falsification stated and checked; reproduced run; for physical claims, physical evidence"},
+    {"status": "LITERATURE_SUPPORTED", "meaning": "Supported by an external source whose exact supporting proposition is recorded; not independently checked here.", "requires": "external_source evidence"},
+    {"status": "INFERRED", "meaning": "Reasoned from other recorded evidence without direct test. The strongest status an interpretation can carry.", "requires": "non-interpretive evidence it is inferred from"},
+    {"status": "PROVISIONAL", "meaning": "A working position adopted to make progress (a naming or modelling choice), explicitly open to revision.", "requires": "nothing beyond a stated rationale"},
+    {"status": "HYPOTHESIS", "meaning": "A testable proposition that has not yet been tested.", "requires": "a statement and, ideally, a falsification condition"},
+    {"status": "UNRESOLVED", "meaning": "Cannot currently be tested or the evidence is inconclusive/contradictory.", "requires": "a record of why"},
+    {"status": "DISPROVEN", "meaning": "A falsification condition was triggered or a counterexample was recorded. Preserved, never deleted.", "requires": "contradicting evidence"},
+    {"status": "REJECTED", "meaning": "Withdrawn for non-empirical reasons (ill-posed, redundant with established theory, misleading terminology). Preserved with rationale.", "requires": "a rationale"}
+  ],
+  "forbidden": ["PROVEN (use DERIVED for mathematics, EXPERIMENTALLY_SUPPORTED for tests)", "'novel' without a novelty_scope in {repository, team, literature_unsearched, literature_searched}"],
+  "evidence_kinds": ["raw_observation", "derived_measurement", "interpretation", "external_source", "inference", "hypothesis", "derivation"],
+  "evidence_domains": {
+    "mathematical": "derivation over formal objects",
+    "computational": "execution of a model that is itself the subject of the claim",
+    "simulated": "execution of a model standing in for another target (e.g. injected flips standing in for physical upsets)",
+    "physical": "measurement of physical hardware",
+    "repository": "measurement of this repository's own recorded history",
+    "literature": "external published source"
+  },
+  "novelty_scopes": {
+    "repository": "not previously present in this repository",
+    "team": "not previously known to the people/agents working here",
+    "literature_unsearched": "no literature search performed",
+    "literature_searched": "a recorded literature search did not find it (still not a proof of scientific novelty)"
+  }
+}

@@ -1,0 +1,1117 @@
+[
+  {
+    "id": "C-001",
+    "canonical_name": "alphabet",
+    "definition": "Finite set of symbols a state component can take.",
+    "notation": "Sigma = {0,1}",
+    "category": "representation",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "AXIOM",
+    "established_terms": [
+      "alphabet (formal languages)"
+    ],
+    "source_disciplines": [
+      "formal languages",
+      "symbolic dynamics"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [],
+    "examples": [
+      "{0,1}"
+    ],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-002",
+    "canonical_name": "state (bare state)",
+    "definition": "An element of a state space; nothing more is attached to it.",
+    "notation": "s_t in X_n = Sigma^n",
+    "category": "representation",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "state",
+      "configuration (CA)"
+    ],
+    "source_disciplines": [
+      "automata",
+      "dynamical systems"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-001"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "LIT-014"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-003",
+    "canonical_name": "state space",
+    "definition": "The set of all states of a model, here Sigma^n encoded as integers 0..2^n-1.",
+    "notation": "X_n",
+    "category": "representation",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "state space",
+      "phase space (discrete)"
+    ],
+    "source_disciplines": [
+      "dynamical systems"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-002"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [
+      "finite; the executable subset may be smaller than the mathematical one (resource boundary)"
+    ],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-004",
+    "canonical_name": "bare transition",
+    "definition": "An ordered pair of states (s_t, s_{t+1}); carries no time, cause or location.",
+    "notation": "s_t -> s_{t+1}",
+    "category": "dynamics",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "transition",
+      "edge of the transition relation"
+    ],
+    "source_disciplines": [
+      "automata",
+      "LTS"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-003"
+    ],
+    "examples": [],
+    "counterexamples": [
+      "identity step 0->0 is a transition with no change (EXP-A)"
+    ],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-005",
+    "canonical_name": "transition event",
+    "definition": "A recorded transition: (source, target, logical time t, optional wall-clock observation, label). The record, not the transition, is what the instrument holds.",
+    "notation": "e_t = (s_t, s_{t+1}, t, ...)",
+    "category": "observation",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "event (trace semantics)",
+      "occurrence"
+    ],
+    "source_disciplines": [
+      "trace theory",
+      "event structures",
+      "provenance"
+    ],
+    "related_concepts": [
+      "C-006"
+    ],
+    "parent_concepts": [
+      "C-004"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "note": "Distinct from 'event' in event structures (Winskel), where events carry causality/conflict relations; here no causal relation is implied."
+  },
+  {
+    "id": "C-006",
+    "canonical_name": "trace",
+    "definition": "A finite sequence of transition events.",
+    "notation": "tau = (e_0,...,e_n)",
+    "category": "dynamics",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "trace",
+      "execution",
+      "run",
+      "orbit segment"
+    ],
+    "source_disciplines": [
+      "trace semantics",
+      "dynamical systems",
+      "model checking"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-005"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "LIT-014"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-007",
+    "canonical_name": "transition system",
+    "definition": "A set of states with a transition relation (optionally labelled, with initial states and atomic propositions).",
+    "notation": "(S, Act, ->, I, AP, L)",
+    "category": "dynamics",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "labelled transition system",
+      "Kripke structure",
+      "automaton"
+    ],
+    "source_disciplines": [
+      "concurrency",
+      "model checking"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-004"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "LIT-014"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-008",
+    "canonical_name": "functional graph",
+    "definition": "Transition graph of a deterministic map: every vertex has out-degree 1; each component has exactly one cycle.",
+    "notation": "G_f = (X, {(x, f x)})",
+    "category": "structure",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "functional graph",
+      "mapping digraph",
+      "state-transition diagram"
+    ],
+    "source_disciplines": [
+      "combinatorics",
+      "dynamical systems"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-007"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "LIT-003"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-009",
+    "canonical_name": "Computational Transition Graph (CTG)",
+    "definition": "Provisional internal name for a transition graph of a computational model with annotations (labels, times, layers, perturbation markers).",
+    "notation": "CTG",
+    "category": "structure",
+    "term_class": "INTERNAL_WORKING_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "labelled transition system",
+      "functional graph",
+      "temporal graph"
+    ],
+    "source_disciplines": [
+      "LTS",
+      "graph theory"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-007",
+      "C-008"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "INT-002"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [
+      "annotated LTS"
+    ],
+    "note": "No distinct mathematical object identified (INT-002, H-007). Use 'transition system' or 'functional graph' in formal statements; CTG only as a code-level name."
+  },
+  {
+    "id": "C-010",
+    "canonical_name": "Computational Transition Substrate",
+    "definition": "Provisional umbrella term for the research domain: states, transitions, histories, structures, representations and maps between them.",
+    "notation": "-",
+    "category": "meta",
+    "term_class": "INTERNAL_WORKING_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "discrete dynamical systems",
+      "operational semantics (partially)"
+    ],
+    "source_disciplines": [
+      "dynamical systems",
+      "semantics"
+    ],
+    "related_concepts": [
+      "C-007"
+    ],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "note": "No single established term covers the umbrella; kept as internal label only. See ONTOLOGY.md O-1."
+  },
+  {
+    "id": "C-011",
+    "canonical_name": "attractor (periodic orbit)",
+    "definition": "A cycle of a functional graph.",
+    "notation": "-",
+    "category": "structure",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "periodic orbit",
+      "limit cycle (discrete)",
+      "attractor"
+    ],
+    "source_disciplines": [
+      "dynamical systems"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-008"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-012",
+    "canonical_name": "basin",
+    "definition": "Set of states whose orbits reach a given attractor (a weak component of the functional graph).",
+    "notation": "-",
+    "category": "structure",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "basin of attraction"
+    ],
+    "source_disciplines": [
+      "dynamical systems"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-011"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-013",
+    "canonical_name": "transient (tail) length",
+    "definition": "Number of steps before an orbit enters its cycle.",
+    "notation": "-",
+    "category": "structure",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "transient length",
+      "tail length",
+      "rho-length minus cycle length"
+    ],
+    "source_disciplines": [
+      "dynamical systems",
+      "combinatorics"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-008"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "LIT-003"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-014",
+    "canonical_name": "Garden-of-Eden state",
+    "definition": "A state with no preimage (in-degree 0).",
+    "notation": "-",
+    "category": "structure",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "Garden-of-Eden configuration"
+    ],
+    "source_disciplines": [
+      "cellular automata"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-008"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-015",
+    "canonical_name": "transition language",
+    "definition": "Provisional: the set of sequences obtained when transitions (rather than states) are the symbols.",
+    "notation": "d_t = x_t XOR x_{t+1}",
+    "category": "representation",
+    "term_class": "PROPOSED_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "higher-block (edge) presentation",
+      "sliding block code",
+      "difference sequence"
+    ],
+    "source_disciplines": [
+      "symbolic dynamics",
+      "formal languages"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-006"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "DRV-004",
+      "INT-001"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "note": "For Sigma={0,1} equals the XOR 2-block code image (INT-001). For larger alphabets, the canonical formalism is the edge (2-block) presentation."
+  },
+  {
+    "id": "C-016",
+    "canonical_name": "transition representation",
+    "definition": "Provisional: an intermediate representation preserving selected aspects of transitions while discarding others.",
+    "notation": "-",
+    "category": "representation",
+    "term_class": "PROPOSED_TERM",
+    "status": "HYPOTHESIS",
+    "established_terms": [
+      "intermediate representation",
+      "trace abstraction",
+      "abstract interpretation"
+    ],
+    "source_disciplines": [
+      "compilers",
+      "semantics"
+    ],
+    "related_concepts": [
+      "C-015",
+      "C-018"
+    ],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "note": "Not yet shown to be distinct from projections of traces (C-018 applied to traces)."
+  },
+  {
+    "id": "C-017",
+    "canonical_name": "representational space",
+    "definition": "A set of representations with a chosen equality; the domain/codomain of maps studied.",
+    "notation": "S_A, S_B",
+    "category": "representation",
+    "term_class": "INTERNAL_WORKING_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "domain/codomain",
+      "state space",
+      "semantic domain"
+    ],
+    "source_disciplines": [
+      "semantics",
+      "category theory"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-003"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-018",
+    "canonical_name": "projection (representation map)",
+    "definition": "A total function P: S_A -> S_B between representational spaces; in this repository 'projection' does not imply linearity or idempotence.",
+    "notation": "P_AB",
+    "category": "map",
+    "term_class": "INTERNAL_WORKING_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "abstraction function",
+      "quotient map",
+      "observation function",
+      "factor map (when compatible with dynamics)"
+    ],
+    "source_disciplines": [
+      "abstract interpretation",
+      "dynamical systems",
+      "automata"
+    ],
+    "related_concepts": [
+      "C-017",
+      "C-019",
+      "C-020"
+    ],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "note": "Sub-kinds to keep separate: encoding (injective), decoding (partial inverse), abstraction (non-injective, many-to-one), observation (projection + recording mechanism + clock), refinement (inverse direction of abstraction), compilation (semantics-preserving translation)."
+  },
+  {
+    "id": "C-019",
+    "canonical_name": "fiber / kernel of a map",
+    "definition": "Fiber: P^{-1}(y). Kernel: the equivalence x~x' iff P(x)=P(x'). The kernel is what the map makes indistinguishable.",
+    "notation": "ker P",
+    "category": "map",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "fiber",
+      "kernel of a function",
+      "induced equivalence"
+    ],
+    "source_disciplines": [
+      "set theory",
+      "algebra"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-018"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-020",
+    "canonical_name": "congruence (dynamics-compatible projection)",
+    "definition": "ker P is a congruence of f iff P(x)=P(x') implies P(fx)=P(fx'); then P carries autonomous dynamics g with P o f = g o P.",
+    "notation": "P o f = g o P",
+    "category": "map",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "congruence",
+      "factor map",
+      "homomorphism",
+      "lumpability (Markov)",
+      "bisimulation quotient"
+    ],
+    "source_disciplines": [
+      "automata",
+      "dynamical systems",
+      "Markov chains",
+      "concurrency"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-019"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "DRV-007",
+      "LIT-008",
+      "LIT-009"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-021",
+    "canonical_name": "information loss of a map",
+    "definition": "H(X | P(X)) under a stated distribution on X.",
+    "notation": "H(X|P(X))",
+    "category": "measure",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "conditional entropy",
+      "equivocation"
+    ],
+    "source_disciplines": [
+      "information theory"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-019"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [
+      "requires an explicit distribution; loss under uniform X differs from loss under the dynamics' push-forward (EXP-F F2)"
+    ],
+    "evidence": [
+      "LIT-010"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-022",
+    "canonical_name": "intervention / perturbation",
+    "definition": "A recorded, deliberate change to a state (state perturbation) or to the dynamics (structural perturbation), with its time and parameters.",
+    "notation": "G -> G'",
+    "category": "perturbation",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "intervention (causal inference)",
+      "fault injection",
+      "damage"
+    ],
+    "source_disciplines": [
+      "causal inference",
+      "dependability",
+      "CA"
+    ],
+    "related_concepts": [
+      "C-023"
+    ],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "note": "Every perturbation in this repository is SIMULATED."
+  },
+  {
+    "id": "C-023",
+    "canonical_name": "damage spreading",
+    "definition": "Evolution of the Hamming distance between perturbed and unperturbed copies of a discrete system.",
+    "notation": "d_t",
+    "category": "perturbation",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "damage spreading",
+      "Boolean derivative",
+      "Lyapunov exponent (CA)"
+    ],
+    "source_disciplines": [
+      "statistical physics",
+      "CA",
+      "Boolean networks"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-022"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "LIT-013"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-024",
+    "canonical_name": "perturbation outcome classes",
+    "definition": "masked, recovered, amplified, persistent_local, transformed, null \u2014 defined in substrate/perturb.py, relative to a horizon.",
+    "notation": "-",
+    "category": "perturbation",
+    "term_class": "INTERNAL_WORKING_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "error masking",
+      "fault tolerance outcomes"
+    ],
+    "source_disciplines": [
+      "dependability"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-023"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-025",
+    "canonical_name": "fault / error / failure",
+    "definition": "Fault: adjudged or hypothesised cause of an error. Error: part of state that may lead to failure. Failure: deviation of delivered service.",
+    "notation": "-",
+    "category": "dependability",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "fault-error-failure chain"
+    ],
+    "source_disciplines": [
+      "dependability"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "LIT-002"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-026",
+    "canonical_name": "single-event upset (SEU)",
+    "definition": "A soft error caused by the signal induced by a single energetic-particle strike (physical). NOT synonymous with 'a bit changed without an instruction'.",
+    "notation": "-",
+    "category": "physical",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "SEU",
+      "soft error",
+      "single-event effect (SEE, broader)"
+    ],
+    "source_disciplines": [
+      "radiation effects",
+      "semiconductor reliability"
+    ],
+    "related_concepts": [
+      "C-025"
+    ],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [
+      "an injected bit flip in this repository's simulator (it is a simulated state change, not an SEU)"
+    ],
+    "assumptions": [],
+    "evidence": [
+      "LIT-001"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-027",
+    "canonical_name": "SDC / DUE",
+    "definition": "Silent data corruption: output wrong and undetected. Detected unrecoverable error: detected, not corrected.",
+    "notation": "-",
+    "category": "dependability",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "SDC",
+      "DUE"
+    ],
+    "source_disciplines": [
+      "soft-error engineering"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [
+      "C-025"
+    ],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "LIT-011"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-028",
+    "canonical_name": "ACE bit / AVF",
+    "definition": "A bit is ACE if its corruption changes the architecturally correct outcome; AVF is the fraction of ACE state.",
+    "notation": "-",
+    "category": "dependability",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "ACE analysis",
+      "architectural vulnerability factor"
+    ],
+    "source_disciplines": [
+      "computer architecture"
+    ],
+    "related_concepts": [
+      "C-020",
+      "C-027"
+    ],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "LIT-011"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-029",
+    "canonical_name": "anomaly",
+    "definition": "Provisional: a model-relative residual \u2014 (expected model, observation, discrepancy, context). Not treated as a primitive.",
+    "notation": "-",
+    "category": "observation",
+    "term_class": "PROPOSED_TERM",
+    "status": "HYPOTHESIS",
+    "established_terms": [
+      "residual",
+      "outlier",
+      "model violation",
+      "error (dependability)"
+    ],
+    "source_disciplines": [
+      "statistics",
+      "dependability",
+      "control"
+    ],
+    "related_concepts": [
+      "C-025"
+    ],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "note": "Open problem OP-003."
+  },
+  {
+    "id": "C-030",
+    "canonical_name": "equivalence relations (family)",
+    "definition": "state equality, trace equivalence, simulation, bisimulation, observational (weak) bisimulation, behavioural equivalence w.r.t. an observable. 'Same' must always name one.",
+    "notation": "~",
+    "category": "meta",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "trace equivalence",
+      "bisimilarity",
+      "observational equivalence"
+    ],
+    "source_disciplines": [
+      "concurrency",
+      "automata"
+    ],
+    "related_concepts": [
+      "C-020"
+    ],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "LIT-014",
+      "LIT-008"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-031",
+    "canonical_name": "substrate descent",
+    "definition": "Provisional methodology: deliberately remove an abstraction layer and reconstruct the computation from lower primitives, inspecting intermediate structure.",
+    "notation": "C_0 -> C_1 -> ... -> C_n",
+    "category": "method",
+    "term_class": "PROPOSED_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "refinement",
+      "lowering (compilers)",
+      "reification"
+    ],
+    "source_disciplines": [
+      "compilers",
+      "formal methods"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "note": "Maps to stepwise refinement / lowering; distinct aim (inspection, not implementation)."
+  },
+  {
+    "id": "C-032",
+    "canonical_name": "structural lifting",
+    "definition": "Provisional: treating structures at one level (e.g. transition graphs) as states of a higher-level system (e.g. graph rewriting).",
+    "notation": "S_k -> S_{k+1}",
+    "category": "method",
+    "term_class": "PROPOSED_TERM",
+    "status": "HYPOTHESIS",
+    "established_terms": [
+      "graph rewriting",
+      "functor / category of dynamical systems",
+      "higher-order functions"
+    ],
+    "source_disciplines": [
+      "category theory",
+      "graph transformation"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "note": "H-008, OP-002."
+  },
+  {
+    "id": "C-033",
+    "canonical_name": "meta-substrate",
+    "definition": "Provisional: the sequence S_0 states, S_1 transitions, S_2 structures, S_3 transformations of structures, ...",
+    "notation": "S_k",
+    "category": "meta",
+    "term_class": "PROPOSED_TERM",
+    "status": "HYPOTHESIS",
+    "established_terms": [
+      "n-categories",
+      "higher-order dynamics"
+    ],
+    "source_disciplines": [
+      "category theory"
+    ],
+    "related_concepts": [
+      "C-032"
+    ],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-034",
+    "canonical_name": "storage code",
+    "definition": "Encoding of data into redundant codewords enabling detection/correction (parity, Hamming SEC, SECDED).",
+    "notation": "-",
+    "category": "dependability",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "error-correcting code",
+      "ECC",
+      "SECDED"
+    ],
+    "source_disciplines": [
+      "coding theory"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "LIT-007"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-035",
+    "canonical_name": "logical time vs wall-clock time",
+    "definition": "Logical time: step index of the model (deterministic). Wall-clock: an observation of the instrument's execution (non-deterministic). Timestamps order events; they do not establish causality.",
+    "notation": "t vs wall_ns",
+    "category": "observation",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "logical clock (Lamport)",
+      "physical time"
+    ],
+    "source_disciplines": [
+      "distributed systems"
+    ],
+    "related_concepts": [
+      "C-005"
+    ],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": []
+  },
+  {
+    "id": "C-036",
+    "canonical_name": "velocity / acceleration of computation",
+    "definition": "Physical metaphors for first/second finite differences of traces.",
+    "notation": "-",
+    "category": "measure",
+    "term_class": "REJECTED_TERM",
+    "status": "REJECTED",
+    "established_terms": [
+      "finite difference"
+    ],
+    "source_disciplines": [
+      "numerical analysis"
+    ],
+    "related_concepts": [],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [
+      "DRV-008"
+    ],
+    "first_introduction": "R1 (bootstrap, 2026-09-26)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "note": "Rejected for now: on {0,1} the first difference is a function of (state, XOR transition) and adds no information (DRV-008). Use 'finite difference' if needed."
+  }
+]

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "LIT-001",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "JEDEC dictionary entry 'single-event upset (SEU)' and JEDEC JESD89 (Measurement and Reporting of Alpha Particle and Terrestrial Cosmic Ray-Induced Soft Errors in Semiconductor Devices). https://www.jedec.org/standards-documents/dictionary/terms/single-event-upset-seu",
+    "statement": "An SEU is a soft error caused by the signal induced by a single energetic-particle strike; soft errors are non-destructive (no permanent device damage) and include SEU, multiple-bit upset and transients.",
+    "supports": "definition of SEU used in research/literature/SEU_STUDY.md",
+    "verified_in_session": "search-result level (standard text not read in full)"
+  },
+  {
+    "id": "LIT-002",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "A. Avizienis, J.-C. Laprie, B. Randell, C. Landwehr, 'Basic Concepts and Taxonomy of Dependable and Secure Computing', IEEE TDSC 1(1):11-33, 2004. doi:10.1109/TDSC.2004.2",
+    "statement": "Fault -> error -> failure chain: a fault is the adjudged or hypothesized cause of an error; an error is the part of the system state that may lead to a failure; a failure is a deviation of delivered service from correct service.",
+    "supports": "distinction between physical event, state upset, detected error and system-level failure",
+    "verified_in_session": "bibliographic details verified by search"
+  },
+  {
+    "id": "LIT-003",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "P. Flajolet, A. Odlyzko, 'Random Mapping Statistics', EUROCRYPT '89, LNCS 434, 1990.",
+    "statement": "For a uniformly random mapping on n points: expected number of cyclic nodes ~ sqrt(pi n/2); expected tail and cycle length of a random point ~ sqrt(pi n/8); expected number of components ~ (1/2) log n.",
+    "supports": "EXP-C calibration targets",
+    "verified_in_session": "bibliographic details verified by search; constants from agent knowledge"
+  },
+  {
+    "id": "LIT-004",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "O. Martin, A. Odlyzko, S. Wolfram, 'Algebraic properties of cellular automata', Commun. Math. Phys. 93:219-258, 1984.",
+    "statement": "Additive (linear) cellular automata such as rule 90 on finite rings can be analysed by polynomial algebra over GF(2) modulo x^n - 1; their state-transition diagrams and cycle structure follow from this algebra.",
+    "supports": "DRV-002 is a special case; EXP-D rule-90 result is a rediscovery",
+    "verified_in_session": "no (agent knowledge; verify)"
+  },
+  {
+    "id": "LIT-005",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "ATSB Transport Safety Report AO-2008-070, 'In-flight upset, Airbus A330-303 VH-QPA, 154 km west of Learmonth, WA, 7 October 2008' (final report 19 Dec 2011). https://www.atsb.gov.au/publications/investigation_reports/2008/aair/ao-2008-070",
+    "statement": "The occurrence resulted from a combination of an FCPC AOA-processing design limitation and an ADIRU failure mode producing intermittent data spikes; the failure mode was probably initiated by a single rare internal or external trigger event combined with marginal susceptibility of a hardware component; the trigger could not be determined (SEE was considered and not ruled out, but not established). Three known occurrences in >128 million unit-hours.",
+    "supports": "CASE-001 in research/literature/SEU_STUDY.md",
+    "verified_in_session": "summary-level via search results; full report not read"
+  },
+  {
+    "id": "LIT-006",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "Secondary sources on the 18 May 2003 Schaerbeek (Belgium) electronic-voting discrepancy (e.g. Wikipedia 'Electronic voting in Belgium'; Radiolab 'Bit Flip'). Official Belgian report NOT consulted.",
+    "statement": "One candidate's electronic tally exceeded the recount by exactly 4096 = 2^12; a single-bit flip at bit position 12 was proposed; a cosmic-ray SEU was suggested as a possible cause.",
+    "supports": "CASE-002; the arithmetic signature supports 'single bit changed' (INFERRED), not the physical mechanism",
+    "verified_in_session": "secondary sources only"
+  },
+  {
+    "id": "LIT-007",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "R. W. Hamming, 'Error detecting and error correcting codes', Bell System Technical Journal 29(2):147-160, 1950.",
+    "statement": "A code with minimum Hamming distance 3 corrects all single-bit errors; adding an overall parity bit (distance 4) additionally detects all double errors (SECDED).",
+    "supports": "H-005, H-011, EXP-G expectations",
+    "verified_in_session": "no (standard textbook result)"
+  },
+  {
+    "id": "LIT-008",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "E. F. Moore, 'Gedanken-experiments on sequential machines', Automata Studies, 1956; Myhill-Nerode theorem (1957/58); D. Park 1981 and R. Milner 1989 on bisimulation; R. Paige, R. Tarjan 1987 partition refinement.",
+    "statement": "The coarsest partition of a machine's states that is compatible with the transition function and refines the output partition exists, is unique, and is computed by partition refinement; it is the minimal machine equivalent with respect to observable output behaviour.",
+    "supports": "H-006: the 'minimum information that must survive' question collapses to minimisation / bisimulation quotients relative to an observable",
+    "verified_in_session": "no (standard result)"
+  },
+  {
+    "id": "LIT-009",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "J. G. Kemeny, J. L. Snell, Finite Markov Chains, 1960 (lumpability).",
+    "statement": "A partition of a Markov chain's states is (strongly) lumpable iff all states in a block have equal aggregate transition probabilities into each block; then the aggregated process is itself Markov.",
+    "supports": "stochastic analogue of the congruence condition in substrate/projection.py",
+    "verified_in_session": "no"
+  },
+  {
+    "id": "LIT-010",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "T. M. Cover, J. A. Thomas, Elements of Information Theory, 2nd ed., 2006.",
+    "statement": "For a first-order Markov chain, X_{t+1} is conditionally independent of the past given X_t, so I(X_{t+1}; X_{t-1} | X_t) = 0; the entropy rate is invariant under invertible recodings.",
+    "supports": "H-001 reformulation, DRV-006",
+    "verified_in_session": "no"
+  },
+  {
+    "id": "LIT-011",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "S. S. Mukherjee et al., 'A systematic methodology to compute the architectural vulnerability factors for a high-performance microprocessor', MICRO-36, 2003; S. Mukherjee, Architecture Design for Soft Errors, 2008.",
+    "statement": "Only 'ACE' (architecturally correct execution) bits affect program output; a raw upset rate must be derated by the fraction of state that matters to the observed output (AVF).",
+    "supports": "EXP-G G8 (masking relative to the output observable) is a rediscovery of ACE/AVF reasoning",
+    "verified_in_session": "no"
+  },
+  {
+    "id": "LIT-012",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "D. Lind, B. Marcus, An Introduction to Symbolic Dynamics and Coding, 1995.",
+    "statement": "Sliding block codes, higher-block (edge) presentations, factor codes and conjugacies are the standard formalism for recoding symbol sequences; the 2-block XOR map on the full 2-shift is a 2-to-1 factor code.",
+    "supports": "INT-001: 'transition language' over {0,1} is a known sliding-block recoding",
+    "verified_in_session": "no"
+  },
+  {
+    "id": "LIT-013",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "B. Derrida, Y. Pomeau, 'Random networks of automata: a simple annealed approximation', Europhys. Lett. 1:45, 1986; H. E. Stanley et al., 'Dynamics of spreading phenomena in two-dimensional Ising models', PRL 59, 1987.",
+    "statement": "'Damage spreading' is the established name for the evolution of the Hamming distance between a perturbed and an unperturbed copy of a discrete dynamical system.",
+    "supports": "nomenclature mapping for EXP-D",
+    "verified_in_session": "no"
+  },
+  {
+    "id": "LIT-014",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "R. M. Keller, 'Formal verification of parallel programs', CACM 1976; G. Plotkin, 'A structural approach to operational semantics', 1981; C. Baier, J.-P. Katoen, Principles of Model Checking, 2008.",
+    "statement": "A (labelled) transition system is a tuple (S, Act, ->, I, AP, L); traces, trace equivalence, simulation and bisimulation are defined over it.",
+    "supports": "mapping of 'transition system' and 'CTG' in nomenclature",
+    "verified_in_session": "no"
+  },
+  {
+    "id": "LIT-015",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "W3C PROV-DM: The PROV Data Model, W3C Recommendation, 30 April 2013.",
+    "statement": "Provenance is modelled with entities, activities and agents and relations such as wasGeneratedBy, used, wasDerivedFrom, wasAttributedTo.",
+    "supports": "tools/provenance.py vocabulary",
+    "verified_in_session": "no"
+  },
+  {
+    "id": "LIT-016",
+    "kind": "external_source",
+    "domain": "literature",
+    "status": "LITERATURE_SUPPORTED",
+    "source": "R. C. Baumann, 'Radiation-induced soft errors in advanced semiconductor technologies', IEEE Trans. Device and Materials Reliability 5(3), 2005.",
+    "statement": "Soft errors arise when charge collected at a sensitive node from an ionising particle (alpha particles, neutron-induced secondaries) exceeds the critical charge of the storage/latching element.",
+    "supports": "physical -> computational chain in SEU_STUDY.md",
+    "verified_in_session": "no"
+  },
+  {
+    "id": "DRV-001",
+    "kind": "derivation",
+    "domain": "mathematical",
+    "status": "DERIVED",
+    "statement": "If f: X->X is injective then every iterate f^k is injective, so x != x' implies f^k(x) != f^k(x') for all k. Hence an exact recovery (distance returning to 0) of a state perturbation is impossible under injective deterministic dynamics. Non-injectivity is necessary, not sufficient."
+  },
+  {
+    "id": "DRV-002",
+    "kind": "derivation",
+    "domain": "mathematical",
+    "status": "DERIVED",
+    "statement": "Rule 90 on a ring of n cells is linear over GF(2): the difference D evolves as D_t = (x + x^{-1})^t D_0 in GF(2)[x]/(x^n - 1). For n = 2^k, (x + x^{-1})^{n/2} = x^{n/2} + x^{-n/2} = 0 (Frobenius: squaring is additive in characteristic 2, and x^{n/2} = x^{-n/2} mod x^n - 1). For t < n/2, (x+x^{-1})^t has exponents t-2j in (-n/2, n/2), distinct mod n, and the j=0 term has coefficient 1, so it is nonzero. Hence every single-site difference annihilates at exactly t = n/2 (= 8 for n = 16)."
+  },
+  {
+    "id": "DRV-003",
+    "kind": "derivation",
+    "domain": "mathematical",
+    "status": "DERIVED",
+    "statement": "Changing f only at vertex s changes the forward orbit of x only if orbit_f(x) contains s. So the set of states whose attractor (or transient) changes is contained in Anc(s) = {x : s in orbit_f(x)}."
+  },
+  {
+    "id": "DRV-004",
+    "kind": "derivation",
+    "domain": "mathematical",
+    "status": "DERIVED",
+    "statement": "The map T: {0,1}^{L} -> {0,1}^{L-1}, T(x)_t = x_t XOR x_{t+1}, satisfies T(x) = T(y) iff y = x or y = complement(x). So every fiber has size 2, H(X | T(X)) = 1 bit under uniform X, and (x_0, T(x)) is a bijection. Entropy rates of a stationary process and of its transition sequence are equal (they differ by at most 1 bit over any block)."
+  },
+  {
+    "id": "DRV-005",
+    "kind": "derivation",
+    "domain": "mathematical",
+    "status": "DERIVED",
+    "statement": "In Hamming(7,4) with position-indexed syndrome, a single error at position p has syndrome p (location correctly inferred). A double error at p != q has syndrome p XOR q, which is nonzero and differs from both p and q; the decoder flips a third position, so the inferred location is always wrong and the data may be corrupted (miscorrection). The syndrome identifies a location only under the single-error fault model."
+  },
+  {
+    "id": "DRV-006",
+    "kind": "derivation",
+    "domain": "mathematical",
+    "status": "DERIVED",
+    "statement": "For a first-order Markov process X, I(X_{t+1}; X_{t-1} | X_t) = 0 by the Markov property. Therefore 'history beyond the current state carries predictive information' holds exactly when the process is not first-order Markov in the chosen representation: it is a property of the (process, representation) pair, not of computation in general."
+  },
+  {
+    "id": "DRV-007",
+    "kind": "derivation",
+    "domain": "mathematical",
+    "status": "DERIVED",
+    "statement": "There exists g with P o f = g o P iff for all x, x': P(x) = P(x') implies P(f x) = P(f x') (define g(P x) := P(f x); well-defined exactly under the condition). The coarsest congruence refining ker O is the fixed point of Moore refinement and its block count is the minimum number of states of any deterministic system that reproduces the O-output of every trajectory of f."
+  },
+  {
+    "id": "DRV-008",
+    "kind": "derivation",
+    "domain": "mathematical",
+    "status": "DERIVED",
+    "statement": "For x in {0,1} regarded as integers, Delta x_t = x_{t+1} - x_t equals (1 - 2 x_t) * (x_t XOR x_{t+1}); so the integer first difference is a function of the current state and the GF(2) transition, and carries no additional information. Delta^2 x_t is a function of (x_{t-1}, x_t, x_{t+1})."
+  }
+]
