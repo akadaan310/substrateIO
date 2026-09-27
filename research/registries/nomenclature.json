@@ -1113,5 +1113,150 @@
     "superseded_terms": [],
     "competing_terms": [],
     "note": "Rejected for now: on {0,1} the first difference is a function of (state, XOR transition) and adds no information (DRV-008). Use 'finite difference' if needed."
+  },
+  {
+    "notation": "/map/eca/90/8/state/5/next",
+    "related_concepts": [
+      "C-038",
+      "C-039",
+      "C-040"
+    ],
+    "parent_concepts": [],
+    "examples": [
+      "/map/increment/3/power/8",
+      "/map/eca/90/8/state/5/flip/0/damage/16"
+    ],
+    "counterexamples": [
+      "/map/eca/90/8/teleport (no such operation: not an address)"
+    ],
+    "assumptions": [
+      "operations are pure; wall-clock time is not part of the denotation"
+    ],
+    "evidence": [],
+    "first_introduction": "R2 instrument addition (computational addresses, 2026-09-27)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [
+      "Programmable URL (PURL/0.1, repository purl: resource-centric; this usage addresses computational objects)",
+      "purl.org Persistent URL",
+      "package URL (purl)"
+    ],
+    "id": "C-037",
+    "canonical_name": "computational address (PURL, provisional)",
+    "definition": "A path naming an object of the substrate by how it is derived: a root constructor followed by operations, each applied to the object its prefix denotes (substrate/purl.py). It denotes a value; it is not a pointer to a machine.",
+    "category": "representation",
+    "term_class": "PROPOSED_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "ground term over a many-sorted signature (term algebra)",
+      "URI path (RFC 3986)",
+      "path expression"
+    ],
+    "source_disciplines": [
+      "universal algebra",
+      "programming languages",
+      "web architecture"
+    ],
+    "note": "Name collision acknowledged. Formally an address is a ground term; the name is kept only as a working label and should yield to 'term' if nothing distinguishes it."
+  },
+  {
+    "notation": "-",
+    "related_concepts": [
+      "C-037"
+    ],
+    "parent_concepts": [],
+    "examples": [
+      "/map/eca/30/40/state/5/next resolves without a table; /map/eca/30/40/graph is refused: 2^40 states not materialized"
+    ],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R2 instrument addition (computational addresses, 2026-09-27)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "id": "C-038",
+    "canonical_name": "materialization",
+    "definition": "Computing an object's extension (e.g. a map's lookup table) on demand. An address can be KNOWN (well-formed, resolvable in principle) without being MATERIALIZED; refusals say which (charter rule 7).",
+    "category": "provenance",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "lazy evaluation",
+      "materialized view (databases)",
+      "materialization unit (LLVM ORC JIT)"
+    ],
+    "source_disciplines": [
+      "programming languages",
+      "databases",
+      "compilers"
+    ],
+    "note": "Used in its established sense; listed so its scope here is explicit."
+  },
+  {
+    "notation": "-",
+    "related_concepts": [
+      "C-037"
+    ],
+    "parent_concepts": [],
+    "examples": [],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R2 instrument addition (computational addresses, 2026-09-27)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [
+      "continuation (Strachey/Reynolds): the rest of a computation, which this is not"
+    ],
+    "id": "C-039",
+    "canonical_name": "navigation continuation (trail)",
+    "definition": "An immutable, content-addressed resume point for navigation: the trail of addresses visited and an optional parent (so trails branch). Resuming re-resolves the last address. It holds addresses, never transcripts.",
+    "category": "provenance",
+    "term_class": "INTERNAL_WORKING_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "zipper (Huet 1997)",
+      "cursor",
+      "bookmark trail"
+    ],
+    "source_disciplines": [
+      "programming languages",
+      "hypertext"
+    ],
+    "note": "Called 'continuation' in the design brief; the established meaning differs. A single address is already a continuation of its own derivation; the trail object is needed only for branching."
+  },
+  {
+    "notation": "table_sha256(a) = table_sha256(b)",
+    "related_concepts": [
+      "C-037"
+    ],
+    "parent_concepts": [
+      "C-030"
+    ],
+    "examples": [
+      "/map/increment/3/power/8 and /map/eca/204/3 (both the identity on X_3)"
+    ],
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "first_introduction": "R2 instrument addition (computational addresses, 2026-09-27)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "id": "C-040",
+    "canonical_name": "extensional equality of maps",
+    "definition": "Two maps are equal iff their lookup tables are equal, whatever their names or derivations. Applied to addresses: distinct addresses may denote one map.",
+    "category": "relation",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "extensionality (functions)"
+    ],
+    "source_disciplines": [
+      "set theory",
+      "lambda calculus"
+    ],
+    "note": "Already stated in substrate/core.py ('two maps with equal tables are equal'); recorded as a term because the address layer makes it observable across derivations."
   }
 ]

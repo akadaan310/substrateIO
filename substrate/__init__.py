@@ -15,6 +15,10 @@ Modules (each is an *instrument*, not a theory):
     epistemic   epistemic statuses and promotion guards
     artifacts   canonical JSON, hashing, run manifests
     ledger      registry I/O used by experiments and tools
+    purl        computational addresses: derivation paths over these objects,
+                an operation registry, and a pure resolver (purl_store records)
+    acsp        reader/verifier for ACSP transition-history exports (an
+                external system under observation; never imported)
 
 Nothing in this package observes physical hardware. Every result it produces
 about physical systems is SIMULATED by construction (see research/CHARTER.md).

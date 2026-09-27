@@ -31,5 +31,11 @@
    "required_resources": "stdlib", "current_blocker": null, "related_hypotheses": [], "related_experiments": [], "status": "recurring"},
   {"task_id": "Q-011", "question": "Verify literature entries marked verified_in_session = 'no' against primary sources.",
    "dependency": [], "purpose": "Several citations are from agent background knowledge.", "expected_information_gain": "integrity",
-   "required_resources": "web access", "current_blocker": null, "related_hypotheses": [], "related_experiments": [], "status": "ready"}
+   "required_resources": "web access", "current_blocker": null, "related_hypotheses": [], "related_experiments": [], "status": "ready"},
+  {"task_id": "Q-012", "question": "What regularities, if any, appear in ACSP agent-identity transition histories (acsp-transition-history/1) across embodiments, sessions and substrates?",
+   "dependency": [], "purpose": "ACSP Program 001 exports identity histories with observation labels; substrate/acsp.py reads and verifies them. Any experiment must first be pre-registered (SPEC with falsification condition).", "expected_information_gain": "first contact with an external system under observation",
+   "required_resources": "exports from non-simulated embodiments; the only exports so far come from ACSP's deterministic harness (SIMULATED)", "current_blocker": "no non-simulated ACSP export exists; SPEC not written", "related_hypotheses": [], "related_experiments": [], "status": "blocked"},
+  {"task_id": "Q-013", "question": "Over the space of computational addresses (derivation paths, C-037), how do extensional equivalence classes (C-040) grow with path length, and does recorded navigation find them faster than enumeration?",
+   "dependency": [], "purpose": "The address layer makes distinct derivations of one object observable. Equivalence classes of addresses are candidate raw material for naming recurring structure (language formation) without inventing names. Needs a SPEC with a falsification condition before running.", "expected_information_gain": "medium",
+   "required_resources": "stdlib", "current_blocker": null, "related_hypotheses": [], "related_experiments": [], "status": "ready"}
 ]
