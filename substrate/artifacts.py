@@ -64,7 +64,8 @@ def code_hash() -> str:
                 if f.endswith(".py"):
                     p = os.path.join(dp, f)
                     h.update(os.path.relpath(p, ROOT).encode())
-                    h.update(open(p, "rb").read())
+                    with open(p, "rb") as fh:
+                        h.update(fh.read())
     return h.hexdigest()
 
 
