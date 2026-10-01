@@ -2,15 +2,15 @@
  "collapsed": {
   "dangling_references": [],
   "degree": {
-   "mean_out_degree": 1.1486486486486487,
-   "n_edges": 170,
-   "n_nodes": 148,
-   "sinks": 49,
-   "sources": 57
+   "mean_out_degree": 1.1241830065359477,
+   "n_edges": 172,
+   "n_nodes": 153,
+   "sinks": 52,
+   "sources": 61
   },
   "is_dag": false,
   "node_types": {
-   "concept": 41,
+   "concept": 46,
    "discovery": 6,
    "evidence:derivation": 8,
    "evidence:derived_measurement": 27,
@@ -68,16 +68,16 @@
  "versioned": {
   "dangling_references": [],
   "degree": {
-   "mean_out_degree": 1.1366459627329193,
-   "n_edges": 183,
-   "n_nodes": 161,
-   "sinks": 49,
-   "sources": 66
+   "mean_out_degree": 1.1144578313253013,
+   "n_edges": 185,
+   "n_nodes": 166,
+   "sinks": 52,
+   "sources": 70
   },
   "is_dag": true,
   "longest_lineage_path": 12,
   "node_types": {
-   "concept": 41,
+   "concept": 46,
    "discovery": 6,
    "evidence:derivation": 8,
    "evidence:derived_measurement": 27,

@@ -1299,5 +1299,181 @@
       "content-addressed storage"
     ],
     "note": "Not a new concept; recorded because the address layer conflated the two in one hash (F-010)."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "id": "C-042",
+    "canonical_name": "Scroll (circle sense)",
+    "notation": "scroll = (SEURL program, its step addresses, author, parent, constitution id) as a PURL/0.1 resource",
+    "definition": "A persisted program: an ordered composition of operations on a bound value address, stored as an event-sourced record that holds value addresses (never values), its build records, and its lineage. New versions are forks.",
+    "category": "artifact",
+    "term_class": "INTERNAL_WORKING_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "build recipe / derivation (e.g. Nix derivation)",
+      "persisted pipeline",
+      "program as data (homoiconicity, loosely)"
+    ],
+    "source_disciplines": [
+      "build systems",
+      "programming languages"
+    ],
+    "related_concepts": [
+      "C-037",
+      "C-041"
+    ],
+    "parent_concepts": [
+      "C-037"
+    ],
+    "competing_terms": [
+      "luna-foundry NOMENCLATURE 'scroll' = a window onto a long text with a cursor",
+      "MUSA 'golden scroll' = sealed memory page"
+    ],
+    "examples": [
+      "purl circle /scrolls/{id}; e.g. /seurl/START/map/eca/90/8/state/5/WRITE/next/COMMIT"
+    ],
+    "first_introduction": "purl circle bridge, 2026-10-01",
+    "note": "Kept PROVISIONAL: the name collides with two existing uses in sibling repositories, and nothing yet distinguishes it from a build recipe. Retain only if a property appears that a recipe lacks."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "id": "C-043",
+    "canonical_name": "SEURL path (move word)",
+    "notation": "w \u2208 {START, SWITCH, WRITE, COMMIT, BUILD, TALK, PERTURB}\u00b7args*, run by the url-machine FSM",
+    "definition": "A URL path read as a word over the seven-verb alphabet; the session state is the FSM state reached by the word, so the state is a function of the URL.",
+    "category": "representation",
+    "term_class": "INTERNAL_WORKING_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "finite-state transducer",
+      "command pattern / URL-encoded command sequence",
+      "REST hypermedia state (HATEOAS)"
+    ],
+    "source_disciplines": [
+      "automata theory",
+      "web architecture"
+    ],
+    "related_concepts": [
+      "C-037"
+    ],
+    "parent_concepts": [],
+    "competing_terms": [],
+    "examples": [
+      "/seurl/START/map/eca/90/8/state/5/WRITE/next/PERTURB/0"
+    ],
+    "first_introduction": "seurl index.html; MUSA url-machine.md; executable in purl circle 2026-10-01",
+    "note": "An established object (a word run by a finite automaton). Recorded so that 'SEURL' is not mistaken for a new formalism."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "id": "C-044",
+    "canonical_name": "alias candidate (observed recurrence)",
+    "notation": "contiguous operation subsequence of length \u2265 2 occurring in \u2265 2 distinct scrolls",
+    "definition": "A measured recurrence of operation sequences across independently authored programs. It is a candidate for naming, never named automatically.",
+    "category": "measurement",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "frequent n-gram / sequential pattern mining",
+      "library learning / abstraction discovery (program synthesis)",
+      "grammar compression"
+    ],
+    "source_disciplines": [
+      "data mining",
+      "program synthesis"
+    ],
+    "related_concepts": [
+      "C-042",
+      "C-040"
+    ],
+    "parent_concepts": [],
+    "competing_terms": [],
+    "examples": [
+      "next/next/orbit in two scrolls (purl test/circle.test.js)"
+    ],
+    "first_introduction": "purl circle /aliases, 2026-10-01",
+    "note": "The measurement is established. Whether recurrences in this environment form a language is Q-013's question and is not answered."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "id": "C-045",
+    "canonical_name": "Constitution-Oriented Programming (hypothesis)",
+    "notation": "clause \u2192 governed artifact \u2192 enforcement \u2192 check \u2192 derived status, with the governing text content-addressed and not writable by the governed system",
+    "definition": "The hypothesis that a system's governing invariants can be held as an addressable, versioned clause set whose conformance is derived from executed checks, and whose amendment path lies outside the system it governs.",
+    "category": "method",
+    "term_class": "PROPOSED_TERM",
+    "status": "HYPOTHESIS",
+    "established_terms": [
+      "requirements traceability matrix",
+      "policy-as-code",
+      "design by contract",
+      "conformance testing",
+      "executable specification"
+    ],
+    "source_disciplines": [
+      "software engineering",
+      "formal methods"
+    ],
+    "related_concepts": [
+      "C-041"
+    ],
+    "parent_concepts": [],
+    "competing_terms": [
+      "'constitution' in spec-driven development tooling (a project-principles file)",
+      "'Constitutional AI' (a model-training method; unrelated)"
+    ],
+    "examples": [
+      "purl circle/constitution/constitution-v1.json + conformance.js"
+    ],
+    "first_introduction": "CONSTITUTIONANDDIRECTIVE.md; first implementation purl circle 2026-10-01",
+    "note": "As implemented, every component maps to an established practice (see established_terms). Two observations from one implementation: (1) checks written by the implementer passed defects that an outside participant found (EXP-CIRCLE-FRESH F-C1, F-C2), so a clause is only as strong as its oracle; (2) keeping the clause text immutable forced a separation of governance (clauses) from verification (enforcement.json). Neither yet distinguishes COP from traceability + policy-as-code. Literature comparison not performed in this session (citations unverified, cf. Q-011)."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "id": "C-046",
+    "canonical_name": "constitutional recursion (hypothesis)",
+    "notation": "constitution \u2192 language \u2192 programs \u2192 operations \u2192 artifacts \u2192 extensions, each constrained",
+    "definition": "The proposal that artifacts produced inside a constitutionally governed system can extend the system while remaining constrained by the same clauses.",
+    "category": "method",
+    "term_class": "PROPOSED_TERM",
+    "status": "UNRESOLVED",
+    "established_terms": [
+      "reflective towers",
+      "bootstrapping / self-hosting",
+      "capability-safe extension"
+    ],
+    "source_disciplines": [
+      "programming languages"
+    ],
+    "related_concepts": [
+      "C-045"
+    ],
+    "parent_concepts": [
+      "C-045"
+    ],
+    "competing_terms": [],
+    "examples": [],
+    "first_introduction": "CONSTITUTIONANDDIRECTIVE.md \u00a74",
+    "note": "No evidence either way: nothing in the circle yet lets a produced artifact extend the operation set. Not tested."
   }
 ]

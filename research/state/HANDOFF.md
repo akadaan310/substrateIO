@@ -3,9 +3,17 @@
 Machine-readable twin: `handoff.json`. The procedure is in `PROTOCOL.md`.
 The full picture is in `CURRENT_STATE.md`.
 
+## Instrument changes since R2 (not a research phase)
+- 2026-09-27: computational addresses (`research/reports/instrument-computational-addresses.md`).
+- 2026-10-01: parse -> typed term -> evaluate, the identity decomposition (F-010 fixed),
+  ACSP event projection P-ACSP-EV-1, and terms C-041..C-046
+  (`research/reports/instrument-circle-bridge.md`). The instrument is now the observation
+  end of the purl "circle" bridge (see purl `circle/CURRENT-STATE.md`). No hypothesis changed.
+  New queue items: Q-014 (cross-provider participant), Q-015 (status for external-service records).
+
 ## Quick start
 ```bash
-python3 -m unittest discover -s tests -t .   # expect 40 OK (~25 s)
+python3 -m unittest discover -s tests -t .   # expect 74 OK (~55 s)
 python3 -m tools.validate                     # expect 0 violations
 python3 -m experiments.run_all --dry          # expect all checks pass, same run_ids as registries/experiments.json
 ```
