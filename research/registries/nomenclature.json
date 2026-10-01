@@ -1258,5 +1258,46 @@
       "lambda calculus"
     ],
     "note": "Already stated in substrate/core.py ('two maps with equal tables are equal'); recorded as a term because the address layer makes it observable across derivations."
+  },
+  {
+    "notation": "address_id \u2260 derivation_id \u2260 value_id",
+    "related_concepts": [
+      "C-037",
+      "C-040"
+    ],
+    "parent_concepts": [
+      "C-037"
+    ],
+    "examples": [
+      "/space/8/state/5 and /map/eca/90/8/state/5: one value_id, two address_ids, two derivation_ids"
+    ],
+    "counterexamples": [
+      "/map/eca/90/8 has no value_id: its canonical value (the table) is not materialized"
+    ],
+    "assumptions": [
+      "the canonical value of each kind is declared in substrate/purl.py canonical_value"
+    ],
+    "evidence": [],
+    "first_introduction": "instrument change 2026-10-01 (F-010)",
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "id": "C-041",
+    "canonical_name": "intensional vs extensional identity of an address",
+    "definition": "An address has an intensional identity (its name: address_id; how it is derived: derivation_id) and an extensional identity (the value it denotes, in the canonical form of its kind: value_id). Equal extensional identity does not imply equal intensional identity.",
+    "category": "relation",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "intension/extension (Carnap)",
+      "sense and reference (Frege)",
+      "content addressing vs naming"
+    ],
+    "source_disciplines": [
+      "philosophy of language",
+      "programming language semantics",
+      "content-addressed storage"
+    ],
+    "note": "Not a new concept; recorded because the address layer conflated the two in one hash (F-010)."
   }
 ]

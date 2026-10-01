@@ -509,35 +509,140 @@ def canonical(purl: str) -> str:
     return "/" + "/".join(_tokens(purl))
 
 
-def resolve(purl: str, ctx: Optional[Ctx] = None) -> Tuple[Obj, Ctx]:
-    """Fold the derivation path. Raises PurlError on any failure."""
-    ctx = ctx or Ctx()
+# ---------------------------------------------------------------------------
+# Typed terms: parse (no evaluation) -> Term -> evaluate
+#
+# A Term is the ground term an address denotes (C-037), checked against the
+# many-sorted signature the registry declares (applies_to -> yields) WITHOUT
+# running any operation. This stage exists because derivation_id must be
+# computable before, and independently of, evaluation. Parse checks syntax and
+# sorts (kinds) and parameter types; constraints that depend on other
+# parameters' values (x < 2^n, bit < n) remain evaluation errors.
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class Step:
+    op: str                       # operation id
+    args: Tuple[Any, ...]
+    prefix: str                   # the address of the sub-term ending here
+    applies_to: str
+    yields: str
+
+
+@dataclass(frozen=True)
+class Term:
+    address: str                  # canonical address
+    steps: Tuple[Step, ...]
+
+    @property
+    def kind(self) -> str:
+        return self.steps[-1].yields
+
+    def doc(self) -> dict:
+        return {"address": self.address, "kind": self.kind,
+                "steps": [{"op": s.op, "args": list(s.args), "sort": "{} -> {}".format(s.applies_to, s.yields),
+                           "prefix": s.prefix} for s in self.steps],
+                "requires": sorted({m for s in self.steps for m in _by_id(s.op).requires}),
+                "derivation_id": derivation_id(self)}
+
+
+def parse(purl: str) -> Term:
+    """Address -> typed term. Pure, evaluates nothing. Raises PurlError (400/404/422) on ill-formed or ill-sorted input."""
     toks = _tokens(purl)
     if not toks:
         raise PurlError(400, "empty", "Empty address. Start at /map/... or /space/...; see /operations.")
-    cur = Obj("root", "", {})
-    i = 0
+    kind, at, i, steps = "root", "/", 0, []
     while i < len(toks):
-        cands = [o for o in operations_for(cur.kind) if tuple(toks[i:i + len(o.segment)]) == o.segment]
+        cands = [o for o in operations_for(kind) if tuple(toks[i:i + len(o.segment)]) == o.segment]
         if not cands:
-            raise PurlError(404, "unknown_operation", "No operation {!r} applies to a {}.".format(toks[i], cur.kind),
-                            at=cur.purl or "/", applicable=[o.contract()["template"] for o in operations_for(cur.kind)])
+            raise PurlError(404, "unknown_operation", "No operation {!r} applies to a {}.".format(toks[i], kind),
+                            at=at, applicable=[o.contract()["template"] for o in operations_for(kind)])
         o = max(cands, key=lambda c: len(c.segment))
         j = i + len(o.segment)
         if len(toks) < j + len(o.params):
             raise PurlError(400, "missing_params", "{} needs {}".format(o.id, [p.name for p in o.params]), operation=o.id)
-        args = [_param(p, t) for p, t in zip(o.params, toks[j:j + len(o.params)])]
+        args = tuple(_param(p, t) for p, t in zip(o.params, toks[j:j + len(o.params)]))
+        at = "/" + "/".join(toks[:j + len(o.params)])
+        steps.append(Step(o.id, args, at, o.applies_to, o.yields))
+        kind, i = o.yields, j + len(o.params)
+    return Term(at, tuple(steps))
+
+
+def evaluate(term: Term, ctx: Optional[Ctx] = None) -> Tuple[Obj, Ctx]:
+    """Typed term -> value. Checks executability of every step before running any."""
+    ctx = ctx or Ctx()
+    for s in term.steps:
+        o = _by_id(s.op)
         miss = missing_requirements(o)
         if miss:
             raise PurlError(501, "unavailable_here", "Operation {} is KNOWN and described, but not executable in this environment.".format(o.id),
                             operation=o.contract(), missing=miss)
-        prefix = "/" + "/".join(toks[:j + len(o.params)])
+    cur = Obj("root", "", {})
+    for s in term.steps:
+        o = _by_id(s.op)
         t0 = time.perf_counter_ns()
-        cur = o.impl(ctx, cur, prefix, *args)
-        ctx.steps.append({"purl": prefix, "operation": o.id, "kind": cur.kind, "wall_ns": time.perf_counter_ns() - t0})
+        cur = o.impl(ctx, cur, s.prefix, *s.args)
+        ctx.steps.append({"purl": s.prefix, "operation": o.id, "kind": cur.kind, "wall_ns": time.perf_counter_ns() - t0})
         ctx.operations.append(o.id)
-        i = j + len(o.params)
     return cur, ctx
+
+
+def resolve(purl: str, ctx: Optional[Ctx] = None) -> Tuple[Obj, Ctx]:
+    """parse then evaluate. Raises PurlError on any failure."""
+    return evaluate(parse(purl), ctx)
+
+
+# ---------------------------------------------------------------------------
+# Identity decomposition. One hash per thing that can independently be "the
+# same"; none of them is folded into another.
+#
+#   address_id      H(canonical address)
+#   derivation_id   H([(operation, operation version, args)])   (needs only the Term)
+#   value_id        H(kind, canonical value of that kind)        (extensional; None if not materialized)
+#   environment_id  H(observed capabilities)
+#   execution_id    H(derivation, environment, occurrence)       (assigned only when an execution is recorded)
+#
+# Semantic equivalence beyond equal canonical values gets no id: it stays a
+# recorded observation with evidence.
+# ---------------------------------------------------------------------------
+
+def _h(obj: Any) -> str:
+    return "sha256:" + A.sha256_obj(obj)
+
+
+def address_id(purl: str) -> str:
+    return _h({"address": canonical(purl)})
+
+
+def derivation_id(term: Term) -> str:
+    return _h([[s.op, operation_version(_by_id(s.op)), list(s.args)] for s in term.steps])
+
+
+def canonical_value(o: Obj) -> Tuple[Optional[Any], str]:
+    """The value of an object *as its kind*, stripped of how it was reached. Returns (value, rule)."""
+    if o.kind == "map":
+        if o.map._table is None:
+            return None, "a map's canonical value is its table (extension); not materialized here"
+        return {"n": o.map.n, "table": o.map._table}, "table (extensional equality, C-040)"
+    if o.kind == "state":
+        return {"n": o.value["n_bits"], "x": o.value["x"]}, "(n, x); dynamics and provenance are context, not value"
+    if o.kind == "space":
+        return {"n": o.value["n_bits"]}, "n"
+    if o.kind == "trace" and "states" in o.value:
+        return {"n": o.map.n if o.map else None, "states": o.value["states"]}, "(n, state sequence)"
+    if o.kind == "cycle":
+        return {"n": o.map.n, "states": sorted(o.value["states"])}, "(n, set of states)"
+    return o.value, "the full value document (no coarser canonical form declared for this kind)"
+
+
+def value_id(o: Obj) -> Optional[str]:
+    v, _ = canonical_value(o)
+    return None if v is None else _h({"kind": o.kind, "value": v})
+
+
+def environment_id(env: Optional[dict] = None) -> str:
+    env = env or environment()
+    return _h({k: env[k] for k in ("runtime", "python", "implementation", "modules")})
 
 
 # ---------------------------------------------------------------------------
@@ -585,8 +690,14 @@ def next_links(o: Obj) -> List[dict]:
     return L
 
 
-def identity(o: Obj) -> dict:
-    out = {"address": o.purl, "value_sha256": "sha256:" + A.sha256_obj(o.value)}
+def identity(o: Obj, term: Optional[Term] = None) -> dict:
+    term = term or parse(o.purl)
+    v, rule = canonical_value(o)
+    out = {"address": o.purl, "value_sha256": "sha256:" + A.sha256_obj(o.value),
+           "address_id": address_id(o.purl), "derivation_id": derivation_id(term),
+           "value_id": value_id(o), "value_rule": rule,
+           "note": "value_id is the identity of the value; address_id and derivation_id identify how it was named and "
+                   "derived. value_sha256 hashes the full response value (which includes construction) and is kept for compatibility."}
     if o.kind == "map" and o.map._table is not None:
         out["table_sha256"] = "sha256:" + A.sha256_obj(o.map._table)
         out["equivalence"] = "Two addresses with the same table_sha256 denote the same map (extensional equality)."
@@ -631,6 +742,9 @@ def envelope(o: Obj, ctx: Ctx) -> dict:
             "materialized": [{k: v for k, v in m.items() if k != "wall_ns"} for m in ctx.materialized],
             "effects": sorted({_by_id(s["operation"]).effects for s in ctx.steps}),
             "deterministic_sha256": "sha256:" + A.sha256_obj({"purl": o.purl, "kind": o.kind, "value": o.value}),
+            "deterministic_sha256_semantics": "H(address, kind, full value): an address-bound result hash. Equal for reruns of one "
+                                              "address; never equal across addresses. Compare values with identity.value_id (F-010).",
+            "environment_id": environment_id(),
             "wall_ns": {"steps": [s["wall_ns"] for s in ctx.steps], "materialization": [m["wall_ns"] for m in ctx.materialized],
                         "note": "instrument wall clock: nondeterministic, excluded from every hash"},
             "epistemic_status": sorted({_by_id(s["operation"]).epistemic_status for s in ctx.steps}),

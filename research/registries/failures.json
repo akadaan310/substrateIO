@@ -115,5 +115,14 @@
     "related_experiments": [],
     "evidence": [],
     "recorded_utc": "2026-09-26"
+  },
+  {
+    "id": "F-010",
+    "type": "implementation_defect",
+    "summary": "The value-address envelope's deterministic_sha256 hashed (address, kind, value) together, so it identified the address-bound result, not the value; Store.compare used it for different addresses, so the verdict 'same_value' was unreachable: /map/increment/3/power/8/table vs /map/eca/204/3/table (one table) and /space/8/state/5 vs /map/eca/90/8/state/5 were reported 'different_value'. Reproduced before the fix. Resolved by decomposing identity into address_id, derivation_id (computable from the typed term without evaluation), value_id (canonical value per kind; None when not materialized), environment_id and an execution hash; compare now uses value_id across addresses. deterministic_sha256 is kept with its actual semantics stated. Regression tests: tests/test_purl_terms.py, including an independent hash oracle.",
+    "status": "RESOLVED",
+    "related_experiments": [],
+    "evidence": [],
+    "recorded_utc": "2026-10-01"
   }
 ]

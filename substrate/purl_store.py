@@ -77,11 +77,21 @@ class Store:
         env = P.envelope(obj, ctx)
         wall = time.perf_counter_ns() - t0
         prior = self._read(self.exec_path)
+        ident = env["identity"]
+        seq = "X-{:06d}".format(len(prior) + 1)
+        recorded = A.utcnow()
         rec = {
-            "execution_id": "X-{:06d}".format(len(prior) + 1),
+            "execution_id": seq,
+            "execution_hash": "sha256:" + A.sha256_obj({"derivation_id": ident["derivation_id"],
+                                                        "environment_id": env["execution"]["environment_id"],
+                                                        "code_hash": A.code_hash(), "occurrence": [seq, recorded]}),
             "purl": obj.purl,
             "kind": obj.kind,
             "value": obj.value,
+            "address_id": ident["address_id"],
+            "derivation_id": ident["derivation_id"],
+            "value_id": ident["value_id"],
+            "environment_id": env["execution"]["environment_id"],
             "deterministic_sha256": env["execution"]["deterministic_sha256"],
             "table_sha256": env["identity"].get("table_sha256"),
             "operations": env["execution"]["operations"],
@@ -91,7 +101,7 @@ class Store:
             "code_hash": A.code_hash(),
             "git": A.git_state(),
             "environment": dict(A.environment(), modules=P.environment()["modules"]),
-            "recorded_utc": A.utcnow(),
+            "recorded_utc": recorded,
             "wall_ns": wall,
         }
         self._append(self.exec_path, rec)
@@ -123,6 +133,33 @@ class Store:
         return {"protocol": P.PROTOCOL, "kind": "execution_history", "purl": P.canonical(purl), "count": len(rows),
                 "executions": [{k: r[k] for k in ("execution_id", "deterministic_sha256", "code_hash", "recorded_utc", "wall_ns")} for r in rows],
                 "comparisons": [compare(a, b) for a, b in zip(rows, rows[1:])]}
+
+    # -- observations (named projections of external records) -------------
+    def observe(self, projection: str, origin: str, document: dict) -> dict:
+        """Apply a declared projection to an external record and append the result. The record is data, never instructions."""
+        from . import acsp_events
+        if projection != acsp_events.PROJECTION_ID:
+            raise P.PurlError(404, "unknown_projection", "Known projections: [{}].".format(acsp_events.PROJECTION_ID))
+        try:
+            res = acsp_events.project(document, origin)
+        except (KeyError, TypeError) as e:
+            raise P.PurlError(422, "malformed_source", "The document is not an ACSP/0.1 event_list: missing {}.".format(e))
+        except ValueError as e:
+            raise P.PurlError(422, "invalid_param", str(e), param="origin")
+        obs_path = os.path.join(self.dir, "observations.jsonl")
+        prior = self._read(obs_path)
+        rec = dict(res, observation_id="O-{:06d}".format(len(prior) + 1), recorded_utc=A.utcnow(), code_hash=A.code_hash())
+        self._append(obs_path, rec)
+        same = [r for r in prior if r["resource_id"] == rec["resource_id"] and r["projection"]["id"] == projection]
+        return {"protocol": P.PROTOCOL, "kind": "observation", "observation": rec,
+                "previous": (same[-1]["observation_id"] if same else None),
+                "links": {"self": "/observations/" + rec["observation_id"]}}
+
+    def observation(self, oid: str) -> dict:
+        for r in self._read(os.path.join(self.dir, "observations.jsonl")):
+            if r["observation_id"] == oid:
+                return r
+        raise P.PurlError(404, "not_found", "No observation {}.".format(oid))
 
     # -- continuations -----------------------------------------------------
     def continuation(self, trail: List[str], parent: Optional[str] = None, note: str = "") -> dict:
@@ -162,7 +199,16 @@ def compare(a: dict, b: dict) -> dict:
         "environment": a["environment"] == b["environment"],
         "materialization": a["materialized"] == b["materialized"],
     }
+    va, vb = a.get("value_id"), b.get("value_id")
+    if a["purl"] == b["purl"]:
+        verdict = "reproduced" if same_out else "differs"
+    elif va is None or vb is None:
+        verdict = "value_not_comparable"   # a value was not materialized (charter rule 7), or a pre-F-010 record
+    else:
+        verdict = "same_value" if va == vb and a["kind"] == b["kind"] else "different_value"
     return {"a": a["execution_id"], "b": b["execution_id"], "same_purl": a["purl"] == b["purl"],
+            "same_value_id": (va == vb) if va and vb else None,
             "unchanged": fields, "changed": [k for k, v in fields.items() if not v],
             "wall_ns": {"a": a["wall_ns"], "b": b["wall_ns"], "note": "nondeterministic; not part of the verdict"},
-            "verdict": ("reproduced" if same_out else "differs") if a["purl"] == b["purl"] else ("same_value" if same_out else "different_value")}
+            "verdict": verdict,
+            "verdict_basis": "same address: deterministic_sha256; different addresses: value_id (F-010)"}

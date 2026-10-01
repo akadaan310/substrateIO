@@ -86,6 +86,14 @@
    "C-025"
   ],
   [
+   "C-040",
+   "C-030"
+  ],
+  [
+   "C-041",
+   "C-037"
+  ],
+  [
    "H-001@r0",
    "C-006"
   ],
@@ -835,6 +843,21 @@
   "C-036": {
    "type": "concept"
   },
+  "C-037": {
+   "type": "concept"
+  },
+  "C-038": {
+   "type": "concept"
+  },
+  "C-039": {
+   "type": "concept"
+  },
+  "C-040": {
+   "type": "concept"
+  },
+  "C-041": {
+   "type": "concept"
+  },
   "DISC-001": {
    "type": "discovery"
   },
@@ -1025,6 +1048,9 @@
    "type": "failure"
   },
   "F-009": {
+   "type": "failure"
+  },
+  "F-010": {
    "type": "failure"
   },
   "H-001@r0": {

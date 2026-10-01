@@ -5,10 +5,14 @@
     GET  /<purl>                        resolve (pure; writes nothing)
     POST /<purl>                        resolve AND record the execution (append-only)
     GET  /operations[/<id>]             the operation registry / one contract
-    GET  /environment                   an observation of this runtime
+    GET  /environment                   an observation of this runtime (+ environment_id)
+    GET  /term/<purl>                   the typed term (parse only; evaluates nothing)
     GET  /executions?purl=<purl>        execution history of an address, with rerun comparisons
     GET  /executions/<id>[/compare/<id>]
     POST /continuations                 {"trail": [purl, ...], "parent": id?, "note": str?}
+    GET  /projections                   declared projections of external records
+    POST /observations                  {"projection", "origin", "document"}: project and record
+    GET  /observations/<id>
     GET  /continuations/<id>
 
 Why two methods: GET must stay safe (resolution is pure and cacheable);
@@ -38,7 +42,7 @@ def route(method: str, raw_path: str, body: bytes, store: Store):
         if method == "GET" and path == "/":
             return 200, {"protocol": P.PROTOCOL, "kind": "index", "roots": P.registry_document()["roots"],
                          "try": ["/map/eca/90/8", "/map/eca/90/8/state/5/next", "/map/increment/3/power/8"],
-                         "links": {"operations": "/operations", "environment": "/environment"}}
+                         "links": {"operations": "/operations", "environment": "/environment", "term": "/term/map/eca/90/8/state/5/next"}}
         if method == "GET" and path == "/operations":
             return 200, P.registry_document()
         if method == "GET" and path.startswith("/operations/"):
@@ -49,7 +53,12 @@ def route(method: str, raw_path: str, body: bytes, store: Store):
             return 200, dict(o.contract(), protocol=P.PROTOCOL, kind="operation", version=P.operation_version(o),
                              executable_here=not P.missing_requirements(o), missing=P.missing_requirements(o))
         if method == "GET" and path == "/environment":
-            return 200, P.environment()
+            return 200, dict(P.environment(), environment_id=P.environment_id())
+        if method == "GET" and (path == "/term" or path.startswith("/term/")):
+            t = P.parse(path[len("/term"):])
+            return 200, dict(t.doc(), protocol=P.PROTOCOL, kind_of_document="term", address_id=P.address_id(t.address),
+                             semantics="The typed term this address denotes: parsed and sort-checked, NOT evaluated.",
+                             links={"evaluate": t.address})
         if method == "GET" and path == "/executions":
             if "purl" not in q:
                 raise P.PurlError(400, "malformed", "Use /executions?purl=<address>.")
@@ -59,6 +68,15 @@ def route(method: str, raw_path: str, body: bytes, store: Store):
             if len(parts) == 5 and parts[3] == "compare":
                 return 200, dict(compare(store.execution(parts[2]), store.execution(parts[4])), protocol=P.PROTOCOL, kind="comparison")
             return 200, dict(store.execution(parts[2]), protocol=P.PROTOCOL, kind="execution")
+        if path == "/observations" and method == "POST":
+            d = json.loads(body or b"{}")
+            return 201, store.observe(d.get("projection", ""), d.get("origin", ""), d.get("document") or {})
+        if method == "GET" and path.startswith("/observations/"):
+            return 200, dict(store.observation(path.split("/")[2]), protocol=P.PROTOCOL, kind="observation")
+        if method == "GET" and path == "/projections":
+            from substrate import acsp_events
+            return 200, {"protocol": P.PROTOCOL, "kind": "projection_registry", "projections": [acsp_events.DECLARATION],
+                         "record": "POST /observations {projection, origin: harness|service, document}"}
         if path == "/continuations" and method == "POST":
             d = json.loads(body or b"{}")
             return 201, store.continuation(d.get("trail", []), d.get("parent"), d.get("note", ""))
