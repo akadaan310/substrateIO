@@ -22,6 +22,26 @@ not be assumed.
 | 12 | `registries/research_queue.json` | What is next, in dependency order? |
 | 13 | `git log --stat -10`, `research/reports/` | What changed recently, and why? |
 
+### 1a. Sessions that touch the bridge (added at STASIS-2)
+
+The substrate is also the observation end of a cross-repository bridge
+(purl `src/circle`). A session whose work crosses repositories also reads, in order:
+
+| # | Artifact | Answers |
+|---|----------|---------|
+| B1 | purl `circle/bridge-manifest.json` (generated) | Which repositories, branches, commits, deployments, routes and records exist? |
+| B2 | purl `circle/stases.json` | Which cross-repository baselines (C-049) exist, and what changed between them? |
+| B3 | purl `circle/BRIDGE-CONTRACT.md` | What may cross each boundary, and what is lost? |
+| B4 | purl `circle/CANONICAL-STATE.md` | Does production match the research branches? |
+
+Before reconstructing, fetch **every** remote branch (`git fetch origin`). STASIS-1
+reported existing work as missing because it did not (purl
+`circle/BRIDGE-RECONSTRUCTION.md` §0).
+
+At a bridge milestone, run the cold reconstruction test (C-051):
+`npm run bridge:cold` in purl. It rebuilds everything from committed refs and
+compares the hashes.
+
 ## 2. Verify the substrate
 
 ```bash

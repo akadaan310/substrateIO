@@ -11,6 +11,15 @@ The full picture is in `CURRENT_STATE.md`.
   end of the purl "circle" bridge (see purl `circle/CURRENT-STATE.md`). No hypothesis changed.
   New queue items: Q-014 (cross-provider participant), Q-015 (status for external-service records).
 
+## Bridge STASIS-2 (2026-10-01; not a research phase)
+- Registry C-047..C-053 (identity kinds, edge vocabulary, stasis, clock domain, cold
+  reconstruction; C-052 addressed transition and C-053 recursive program construction are
+  HYPOTHESIS). PROTOCOL.md section 1a: bridge sessions fetch every branch first.
+- First measurement for C-053 (purl `circle/DOGFOOD-REPORT.md` section 2): closure of programs
+  under five transformers is 0.56-0.78 for state-bound programs and 0.0 for a map. Not a
+  hypothesis test: no SPEC was pre-registered. Candidate for one.
+- The substrate's own artifacts reproduce from committed refs (purl `circle/cold/report-*.json`).
+
 ## Quick start
 ```bash
 python3 -m unittest discover -s tests -t .   # expect 74 OK (~55 s)

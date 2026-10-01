@@ -133,3 +133,10 @@ OP-001 … OP-009 (`registries/open_problems.json`). The most important are:
 - Post-hoc analyses (B8, G8) are exploratory.
 - The layered model's normalised distances are ad hoc (OP-006).
 - Wall-clock timings measure the Python interpreter, not the models.
+
+## Addendum: bridge STASIS-2 (2026-10-01)
+
+Instrument and nomenclature only; no hypothesis, experiment or run changed.
+Terms C-041..C-053 and queue items Q-014/Q-015 were added on the bridge branch. The
+substrate is the observation end of the purl circle (values, typed terms, execution
+records, P-ACSP-EV-1). Reconstruction for cross-repository work: PROTOCOL.md section 1a.
