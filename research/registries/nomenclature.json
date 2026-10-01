@@ -1475,5 +1475,239 @@
     "examples": [],
     "first_introduction": "CONSTITUTIONANDDIRECTIVE.md \u00a74",
     "note": "No evidence either way: nothing in the circle yet lets a produced artifact extend the operation set. Not tested."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "first_introduction": "bridge STASIS-2, 2026-10-01",
+    "id": "C-047",
+    "canonical_name": "identity decomposition (eleven kinds)",
+    "notation": "address, derivation, value, environment, build, content, execution, observation, record, view, session",
+    "definition": "The identities of the bridge, each hashed or named separately: none is derived from another and none substitutes for another. Equality in one kind implies nothing about equality in another.",
+    "category": "relation",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "intension/extension",
+      "content addressing",
+      "build provenance (SLSA-style)",
+      "event sourcing"
+    ],
+    "source_disciplines": [
+      "programming languages",
+      "build systems"
+    ],
+    "related_concepts": [
+      "C-041"
+    ],
+    "parent_concepts": [
+      "C-041"
+    ],
+    "examples": [
+      "/space/8/state/5 and /map/eca/90/8/state/5: one value_id, two address_ids"
+    ],
+    "note": "Verified against code: build_id and content-as-bytes were MISSING before this phase; substrate 'execution_id' is a store sequence while the specified hash is 'execution_hash'."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "first_introduction": "bridge STASIS-2, 2026-10-01",
+    "id": "C-048",
+    "canonical_name": "bridge edge vocabulary",
+    "notation": "ADDRESS PARSE RESOLVE EXECUTE OBSERVE PROJECT RECORD PUBLISH HANDOFF RECONSTRUCT REPLAY FORK BUILD PERTURB",
+    "definition": "A closed set of labels classifying every cross-system interaction by its effect class.",
+    "category": "representation",
+    "term_class": "INTERNAL_WORKING_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "effect systems / effect classes",
+      "CRUD+ verbs"
+    ],
+    "source_disciplines": [
+      "programming languages"
+    ],
+    "related_concepts": [
+      "C-005"
+    ],
+    "parent_concepts": [],
+    "examples": [
+      "circle -> substrate: PARSE, RESOLVE, EXECUTE, RECORD"
+    ],
+    "note": "Labels, not a theory. PROVISIONAL until a cross-system interaction is found that needs a label outside the set or that two labels cannot distinguish."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "first_introduction": "bridge STASIS-2, 2026-10-01",
+    "id": "C-049",
+    "canonical_name": "stasis",
+    "notation": "STASIS-n = (repo commits, deployment commits, checkpoint, constitution id, registry state)",
+    "definition": "A declared cross-repository baseline: the joint state of all repositories and deployments at a boundary, reconstructable from committed artifacts.",
+    "category": "artifact",
+    "term_class": "INTERNAL_WORKING_TERM",
+    "status": "PROVISIONAL",
+    "established_terms": [
+      "SCM baseline",
+      "release manifest"
+    ],
+    "source_disciplines": [
+      "software configuration management"
+    ],
+    "related_concepts": [
+      "C-050"
+    ],
+    "parent_concepts": [],
+    "examples": [
+      "purl circle/stases.json STASIS-0..2"
+    ],
+    "note": "Distinct from research state R_i (single repository). Named at the operator's request; the established name is baseline."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "first_introduction": "bridge STASIS-2, 2026-10-01",
+    "id": "C-050",
+    "canonical_name": "clock domain",
+    "notation": "(domain, position); order across domains is partial, induced by references",
+    "definition": "A totally ordered counter owned by exactly one system (ACSP version, PURL version, substrate execution sequence, trace step t, SEURL move index). There is no global clock.",
+    "category": "relation",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "Lamport logical clock",
+      "happens-before relation",
+      "vector clocks"
+    ],
+    "source_disciplines": [
+      "distributed systems"
+    ],
+    "related_concepts": [
+      "C-035",
+      "C-005"
+    ],
+    "parent_concepts": [
+      "C-035"
+    ],
+    "examples": [
+      "ACSP 8N2RXG1MW79S version 12"
+    ],
+    "note": "Git history is a DAG, not a clock domain."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "first_introduction": "bridge STASIS-2, 2026-10-01",
+    "id": "C-051",
+    "canonical_name": "cold reconstruction test",
+    "notation": "stop -> delete transient state -> clone committed refs -> install from lockfiles -> restart -> verify hashes -> replay -> rerun tests -> compare with checkpoint",
+    "definition": "A test that the whole computational state claimed by a checkpoint can be rebuilt from committed artifacts alone and yields the same hashes.",
+    "category": "method",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "hermetic / clean-room build",
+      "reproducible builds",
+      "event-sourcing replay"
+    ],
+    "source_disciplines": [
+      "build systems"
+    ],
+    "related_concepts": [
+      "C-049"
+    ],
+    "parent_concepts": [],
+    "examples": [
+      "purl scripts/bridge-cold-reconstruct.js"
+    ],
+    "note": "Stronger than unit tests: it fails on anything that only worked because of transient state."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "first_introduction": "bridge STASIS-2, 2026-10-01",
+    "id": "C-052",
+    "canonical_name": "addressed transition (hypothesis)",
+    "notation": "(source_ref, operation, target_ref, actor, clock:(domain,position), content_id)",
+    "definition": "The hypothesis that SEURL moves, PURL events, ACSP events, substrate execution records, git commits, Golden Surface actions and checkpoints share one minimal transition structure, differing in which fields they lose.",
+    "category": "representation",
+    "term_class": "PROPOSED_TERM",
+    "status": "HYPOTHESIS",
+    "established_terms": [
+      "labelled transition system",
+      "event (event sourcing)",
+      "provenance graph (PROV: activity/entity)"
+    ],
+    "source_disciplines": [
+      "concurrency theory",
+      "provenance"
+    ],
+    "related_concepts": [
+      "C-005",
+      "C-050"
+    ],
+    "parent_concepts": [
+      "C-005"
+    ],
+    "examples": [
+      "purl circle /transitions coverage matrix"
+    ],
+    "note": "Tested by projecting each system's records into one schema and measuring field coverage. Not identity: the projection loses fields per system."
+  },
+  {
+    "counterexamples": [],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "competing_terms": [],
+    "first_introduction": "bridge STASIS-2, 2026-10-01",
+    "id": "C-053",
+    "canonical_name": "recursive program construction under explicit transition rules (hypothesis)",
+    "notation": "program -(transform t, params)-> program', with build_id and provenance; repeated",
+    "definition": "Programs producing programs through declared transformers, each result separately typed, built and executed, with lineage back to its source.",
+    "category": "method",
+    "term_class": "PROPOSED_TERM",
+    "status": "HYPOTHESIS",
+    "established_terms": [
+      "program transformation",
+      "staged computation / metaprogramming",
+      "closure of a language under transformations"
+    ],
+    "source_disciplines": [
+      "programming languages"
+    ],
+    "related_concepts": [
+      "C-042",
+      "C-046"
+    ],
+    "parent_concepts": [],
+    "examples": [
+      "purl circle POST /programs/{id}/transform"
+    ],
+    "note": "Closure measured as the fraction of transform results that are well-typed and BUILT. Not autonomy: transformers are fixed and named."
   }
 ]

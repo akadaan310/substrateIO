@@ -102,6 +102,18 @@
    "C-045"
   ],
   [
+   "C-047",
+   "C-041"
+  ],
+  [
+   "C-050",
+   "C-035"
+  ],
+  [
+   "C-052",
+   "C-005"
+  ],
+  [
    "H-001@r0",
    "C-006"
   ],
@@ -879,6 +891,27 @@
    "type": "concept"
   },
   "C-046": {
+   "type": "concept"
+  },
+  "C-047": {
+   "type": "concept"
+  },
+  "C-048": {
+   "type": "concept"
+  },
+  "C-049": {
+   "type": "concept"
+  },
+  "C-050": {
+   "type": "concept"
+  },
+  "C-051": {
+   "type": "concept"
+  },
+  "C-052": {
+   "type": "concept"
+  },
+  "C-053": {
    "type": "concept"
   },
   "DISC-001": {
