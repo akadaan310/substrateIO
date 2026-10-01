@@ -341,9 +341,19 @@
     "assumptions": [],
     "evidence": [],
     "first_introduction": "R1 (bootstrap, 2026-09-26)",
-    "revision_history": [],
+    "revision_history": [
+      {
+        "date": "2026-10-01",
+        "change": "scope stated, statement unchanged",
+        "reason": "purl NOMENCLATURE.md rejects 'attractor' for recurrent structure of EMPIRICAL transition graphs and uses 'closed class'. Verified (tests/test_recurrence_terms.py): in a functional graph, cycles = bottom SCCs = recurrent states, so C-011 is correct in its domain (deterministic maps); in general transition graphs a closed class may hold several cycles and a cycle may be non-closed, so 'attractor' must not be used there. Use C-054.",
+        "evidence": [
+          "tests/test_recurrence_terms.py"
+        ]
+      }
+    ],
     "superseded_terms": [],
-    "competing_terms": []
+    "competing_terms": [],
+    "scope": "deterministic finite maps (functional graphs) only"
   },
   {
     "id": "C-012",
@@ -1337,7 +1347,16 @@
       "purl circle /scrolls/{id}; e.g. /seurl/START/map/eca/90/8/state/5/WRITE/next/COMMIT"
     ],
     "first_introduction": "purl circle bridge, 2026-10-01",
-    "note": "Kept PROVISIONAL: the name collides with two existing uses in sibling repositories, and nothing yet distinguishes it from a build recipe. Retain only if a property appears that a recipe lacks."
+    "note": "Kept PROVISIONAL: the name collides with two existing uses in sibling repositories, and nothing yet distinguishes it from a build recipe. Retain only if a property appears that a recipe lacks.",
+    "operation": "COMMIT (SEURL) -> PURL resource type scroll",
+    "input": "SEURL move word + declared session",
+    "output": "scroll record (id, version, content_id, derivation_id)",
+    "invariants": [
+      "the record never changes its program; versions are forks (K-12)",
+      "author is asserted, never inferred (K-02)"
+    ],
+    "validation_method": "conformance checks fork_leaves_parent_unchanged, scroll_log_verifies, scrolls_publicly_readable",
+    "implementation": "purl src/circle/server.js commitScroll"
   },
   {
     "counterexamples": [],
@@ -1370,7 +1389,16 @@
       "/seurl/START/map/eca/90/8/state/5/WRITE/next/PERTURB/0"
     ],
     "first_introduction": "seurl index.html; MUSA url-machine.md; executable in purl circle 2026-10-01",
-    "note": "An established object (a word run by a finite automaton). Recorded so that 'SEURL' is not mistaken for a new formalism."
+    "note": "An established object (a word run by a finite automaton). Recorded so that 'SEURL' is not mistaken for a new formalism.",
+    "operation": "parseMoves + run (FSM of url-machine.md)",
+    "input": "URL path",
+    "output": "FSM state, bound address, program, prepared mutations, legal verbs",
+    "invariants": [
+      "closed vocabulary (K-14)",
+      "evaluation never performs a mutation"
+    ],
+    "validation_method": "test/musa.test.js; seurl FSM tests",
+    "implementation": "purl src/circle/seurl.js"
   },
   {
     "counterexamples": [],
@@ -1404,7 +1432,15 @@
       "next/next/orbit in two scrolls (purl test/circle.test.js)"
     ],
     "first_introduction": "purl circle /aliases, 2026-10-01",
-    "note": "The measurement is established. Whether recurrences in this environment form a language is Q-013's question and is not answered."
+    "note": "The measurement is established. Whether recurrences in this environment form a language is Q-013's question and is not answered.",
+    "operation": "GET /aliases",
+    "input": "all scrolls' programs",
+    "output": "contiguous operation subsequences occurring in >=2 scrolls",
+    "invariants": [
+      "never named automatically"
+    ],
+    "validation_method": "aliases_only_from_own_builds (independent oracle)",
+    "implementation": "purl src/circle/server.js aliases"
   },
   {
     "counterexamples": [],
@@ -1639,7 +1675,15 @@
     "examples": [
       "purl scripts/bridge-cold-reconstruct.js"
     ],
-    "note": "Stronger than unit tests: it fails on anything that only worked because of transient state."
+    "note": "Stronger than unit tests: it fails on anything that only worked because of transient state.",
+    "operation": "npm run bridge:cold",
+    "input": "committed refs (local or origin)",
+    "output": "cold/report-N.json",
+    "invariants": [
+      "no transient state used"
+    ],
+    "validation_method": "report verdicts",
+    "implementation": "purl scripts/bridge-cold-reconstruct.js"
   },
   {
     "counterexamples": [],
@@ -1675,7 +1719,15 @@
     "examples": [
       "purl circle /transitions coverage matrix"
     ],
-    "note": "Tested by projecting each system's records into one schema and measuring field coverage. Not identity: the projection loses fields per system."
+    "note": "Tested by projecting each system's records into one schema and measuring field coverage. Not identity: the projection loses fields per system.",
+    "operation": "GET /transitions/coverage",
+    "input": "records of 7 kinds",
+    "output": "addressed transitions + field coverage",
+    "invariants": [
+      "projection reports what it loses"
+    ],
+    "validation_method": "coverage matrix reproduced",
+    "implementation": "purl src/circle/bridge.js P.*"
   },
   {
     "counterexamples": [],
@@ -1708,6 +1760,55 @@
     "examples": [
       "purl circle POST /programs/{id}/transform"
     ],
-    "note": "Closure measured as the fraction of transform results that are well-typed and BUILT. Not autonomy: transformers are fixed and named."
+    "note": "Closure measured as the fraction of transform results that are well-typed and BUILT. Not autonomy: transformers are fixed and named.",
+    "operation": "GET|POST /programs/transform; GET /programs/closure",
+    "input": "program + transformer + params",
+    "output": "program' with build_id, content_id, typing result",
+    "invariants": [
+      "build never changes the source (build_does_not_change_source)"
+    ],
+    "validation_method": "closure experiment (STASIS-3, pre-registered)",
+    "implementation": "purl src/circle/bridge.js transform/closure"
+  },
+  {
+    "counterexamples": [
+      "the cycle (a b) in a<->b, b->c, c->c is not closed"
+    ],
+    "assumptions": [],
+    "evidence": [],
+    "revision_history": [],
+    "superseded_terms": [],
+    "first_introduction": "bridge STASIS-3, 2026-10-01",
+    "id": "C-054",
+    "canonical_name": "closed class (bottom strongly connected component)",
+    "notation": "C \u2286 V strongly connected, no edge leaves C, C contains a cycle",
+    "definition": "A strongly connected set of states of a transition graph with no outgoing edge. In a functional graph it is exactly a cycle (C-011); in a general transition graph it may contain several cycles.",
+    "category": "structure",
+    "term_class": "ESTABLISHED_ACADEMIC_TERM",
+    "status": "ESTABLISHED",
+    "established_terms": [
+      "closed communicating class (Markov chains)",
+      "bottom SCC",
+      "recurrent class"
+    ],
+    "source_disciplines": [
+      "graph theory",
+      "Markov chains"
+    ],
+    "related_concepts": [
+      "C-011",
+      "C-008"
+    ],
+    "parent_concepts": [
+      "C-008"
+    ],
+    "competing_terms": [
+      "'attractor' (rejected for empirical graphs: purl NOMENCLATURE.md)"
+    ],
+    "examples": [
+      "{a,b} in a<->b, a->a (two cycles, one closed class)"
+    ],
+    "scope": "any transition graph; coincides with C-011 on functional graphs",
+    "note": "Imported from purl NOMENCLATURE.md so both repositories share one registry entry. 'Recurrent natures' (operator's phrase) maps onto this term plus C-011; no new term is needed (tests/test_recurrence_terms.py)."
   }
 ]
